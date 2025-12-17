@@ -21,9 +21,13 @@ class Config:
     # PostgreSQL Schema (для изоляции проектов в одной БД)
     DATABASE_SCHEMA = os.environ.get('DATABASE_SCHEMA', 'hermitage')
     
-    # Настройка schema для SQLAlchemy (PostgreSQL)
+    # Настройка для SQLAlchemy (PostgreSQL с несколькими воркерами)
     if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith('postgresql'):
         SQLALCHEMY_ENGINE_OPTIONS = {
+            'pool_pre_ping': True,  # Проверка соединения перед использованием
+            'pool_recycle': 300,    # Пересоздавать соединения каждые 5 минут
+            'pool_size': 5,         # Размер пула
+            'max_overflow': 10,     # Дополнительные соединения
             'connect_args': {
                 'options': f'-c search_path={DATABASE_SCHEMA},public'
             }

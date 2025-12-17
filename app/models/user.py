@@ -42,5 +42,14 @@ class Admin(UserMixin, db.Model):
 
 @login_manager.user_loader
 def load_user(user_id):
-    """Загрузчик пользователя для Flask-Login."""
-    return Admin.query.get(int(user_id))
+    """Загрузчик пользователя для Flask-Login с обработкой ошибок БД."""
+    from app import db
+    try:
+        return db.session.get(Admin, int(user_id))
+    except Exception:
+        # При ошибке соединения откатываем транзакцию
+        db.session.rollback()
+        try:
+            return db.session.get(Admin, int(user_id))
+        except Exception:
+            return None
