@@ -1,17 +1,25 @@
 {% extends "base.html" %}
 
+{% block title %}Innenausstattung Frankfurt – Badmöbel, Armaturen & Sanitär | Hermitage{% endblock %}
+{% block description %}Komplette Innenausstattung in Frankfurt ✓ Badmöbel ✓ Armaturen ✓ Sanitär ✓ Beleuchtung ✓ Individuelle Beratung im 500m² Showroom. Qualität seit 1998.{% endblock %}
+{% block keywords %}Innenausstattung Frankfurt, Badmöbel Frankfurt, Armaturen, Sanitär, Badezimmer Einrichtung, Interior Design Frankfurt{% endblock %}
+
+{% block preload %}
+<link rel="preload" href="{{ page.hero_image or url_for('static', filename='images/innenausstattung-hero.jpg') }}" as="image" fetchpriority="high">
+{% endblock %}
+
 {% block content %}
 <!-- Hero -->
-<section class="page-hero" style="background-image: url('{{ page.hero_image or url_for('static', filename='images/innenausstattung-hero.jpg') }}');">
+<section class="page-hero" style="background-image: url('{{ page.hero_image or url_for('static', filename='images/innenausstattung-hero.jpg') }}');" aria-labelledby="page-title">
     <div class="hero-overlay"></div>
     <div class="container">
-        <h1 class="display-4 text-white">{{ page.title if page else 'Innenausstattung Frankfurt' }}</h1>
-        <p class="lead text-white">{{ page.subtitle if page else 'Komplettlösungen für Ihr Zuhause' }}</p>
+        <h1 id="page-title" class="display-4 text-white">{{ page.title if page else 'Innenausstattung Frankfurt – Ihr Partner für Interior Design' }}</h1>
+        <p class="lead text-white">{{ page.subtitle if page else 'Badmöbel, Armaturen & Sanitär – Komplettlösungen für Ihr Zuhause' }}</p>
     </div>
 </section>
 
 <!-- Content -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="content-heading">
     <div class="container">
         {% if page and page.content %}
             <div class="content-block">
@@ -20,7 +28,7 @@
         {% else %}
             <div class="row align-items-center mb-5">
                 <div class="col-lg-6">
-                    <h2>Vielfältige Möglichkeiten der Innenausstattung</h2>
+                    <h2 id="content-heading">Vielfältige Möglichkeiten der Innenausstattung</h2>
                     <p class="lead">
                         Eine Innenausstattung von Hermitage Frankfurt besticht durch ein abgestimmtes 
                         Konzept für Ihr Zuhause oder Ihre geschäftliche Umgebung.
@@ -32,7 +40,12 @@
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ url_for('static', filename='images/innenausstattung-1.jpg') }}" alt="Innenausstattung" class="img-fluid rounded shadow">
+                    <img src="{{ url_for('static', filename='images/innenausstattung-1.jpg') }}" 
+                         alt="Exklusive Innenausstattung bei Hermitage Frankfurt – Badezimmer Design" 
+                         title="Innenausstattung Beispiel"
+                         class="img-fluid rounded shadow"
+                         width="600" height="400"
+                         loading="lazy">
                 </div>
             </div>
             
@@ -50,7 +63,12 @@
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ url_for('static', filename='images/innenausstattung-2.jpg') }}" alt="Showroom" class="img-fluid rounded shadow">
+                    <img src="{{ url_for('static', filename='images/innenausstattung-2.jpg') }}" 
+                         alt="Hermitage Showroom Frankfurt – Innenausstattung Ausstellung"
+                         title="Showroom Ausstellung"
+                         class="img-fluid rounded shadow"
+                         width="600" height="400"
+                         loading="lazy">
                 </div>
             </div>
         {% endif %}

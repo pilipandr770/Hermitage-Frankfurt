@@ -1,17 +1,25 @@
 {% extends "base.html" %}
 
+{% block title %}Fliesen Frankfurt – Feinsteinzeug, Naturstein & Mosaik | Hermitage{% endblock %}
+{% block description %}Exklusive Fliesen in Frankfurt ✓ Feinsteinzeug ✓ Naturstein ✓ Marmor ✓ Mosaik ✓ 500m² Showroom ✓ Persönliche Beratung. Seit 1998 Ihr Experte für Premium-Fliesen.{% endblock %}
+{% block keywords %}Fliesen Frankfurt, Fliesenausstellung Frankfurt, Feinsteinzeug, Naturstein Fliesen, Marmor Fliesen, Mosaik Fliesen, Bodenfliesen, Wandfliesen{% endblock %}
+
+{% block preload %}
+<link rel="preload" href="{{ url_for('static', filename='images/hero/fliesen-hero.jpg') }}" as="image" fetchpriority="high">
+{% endblock %}
+
 {% block content %}
 <!-- Hero -->
-<section class="page-hero" style="background-image: url('{{ url_for('static', filename='images/hero/fliesen-hero.jpg') }}');">
+<section class="page-hero" style="background-image: url('{{ url_for('static', filename='images/hero/fliesen-hero.jpg') }}');" aria-labelledby="page-title">
     <div class="hero-overlay"></div>
     <div class="container">
-        <h1 class="display-4 text-white">{{ page.title if page else 'Ihre Fliesen-Experten in Frankfurt' }}</h1>
-        <p class="lead text-white">{{ page.subtitle if page else 'Exklusive Fliesen für jeden Bereich' }}</p>
+        <h1 id="page-title" class="display-4 text-white">{{ page.title if page else 'Fliesen Frankfurt – Ihr Experte für Premium-Fliesen' }}</h1>
+        <p class="lead text-white">{{ page.subtitle if page else 'Feinsteinzeug, Naturstein, Marmor & Mosaik für jeden Bereich' }}</p>
     </div>
 </section>
 
 <!-- Content -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="content-heading">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -20,7 +28,7 @@
                         {{ page.content | safe }}
                     </div>
                 {% else %}
-                    <h2>Vielfältige Fliesen – für Frankfurt und darüber hinaus</h2>
+                    <h2 id="content-heading">Vielfältige Fliesen – für Frankfurt und darüber hinaus</h2>
                     <p class="lead">
                         Im Gegensatz zu einem Baumarkt finden Sie bei Hermitage Fliesen in Frankfurt 
                         eine wirklich umfangreiche und exklusive Palette an Fliesen aller Art.
@@ -46,34 +54,34 @@
             </div>
             
             <!-- Sidebar -->
-            <div class="col-lg-4">
+            <aside class="col-lg-4">
                 <div class="sidebar-card bg-light p-4 rounded">
                     <h4>Standorte</h4>
                     <p>Wir beliefern und beraten Kunden in der gesamten Rhein-Main-Region:</p>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="{{ url_for('main.fliesen_city', city='offenbach') }}" class="text-decoration-none">
-                                <i class="bi bi-geo-alt me-2"></i>Fliesen Offenbach
+                            <a href="{{ url_for('main.fliesen_city', city='offenbach') }}" class="text-decoration-none" title="Fliesen für Offenbach – Lieferung und Beratung">
+                                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>Fliesen Offenbach
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="{{ url_for('main.fliesen_city', city='hanau') }}" class="text-decoration-none">
-                                <i class="bi bi-geo-alt me-2"></i>Fliesen Hanau
+                            <a href="{{ url_for('main.fliesen_city', city='hanau') }}" class="text-decoration-none" title="Fliesen für Hanau – Lieferung und Beratung">
+                                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>Fliesen Hanau
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="{{ url_for('main.fliesen_city', city='maintal') }}" class="text-decoration-none">
-                                <i class="bi bi-geo-alt me-2"></i>Fliesen Maintal
+                            <a href="{{ url_for('main.fliesen_city', city='maintal') }}" class="text-decoration-none" title="Fliesen für Maintal – Lieferung und Beratung">
+                                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>Fliesen Maintal
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="{{ url_for('main.fliesen_city', city='darmstadt') }}" class="text-decoration-none">
-                                <i class="bi bi-geo-alt me-2"></i>Fliesen Darmstadt
+                            <a href="{{ url_for('main.fliesen_city', city='darmstadt') }}" class="text-decoration-none" title="Fliesen für Darmstadt – Lieferung und Beratung">
+                                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>Fliesen Darmstadt
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="{{ url_for('main.fliesen_city', city='aschaffenburg') }}" class="text-decoration-none">
-                                <i class="bi bi-geo-alt me-2"></i>Fliesen Aschaffenburg
+                            <a href="{{ url_for('main.fliesen_city', city='aschaffenburg') }}" class="text-decoration-none" title="Fliesen für Aschaffenburg – Lieferung und Beratung">
+                                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>Fliesen Aschaffenburg
                             </a>
                         </li>
                     </ul>
@@ -82,20 +90,20 @@
                 <div class="sidebar-card bg-primary text-white p-4 rounded mt-4">
                     <h4>Beratung gewünscht?</h4>
                     <p>Rufen Sie uns an oder besuchen Sie unseren Showroom!</p>
-                    <a href="tel:+496990475570" class="btn btn-light w-100">
-                        <i class="bi bi-telephone me-2"></i>{{ company_phone }}
+                    <a href="tel:+496990475570" class="btn btn-light w-100" title="Hermitage Frankfurt anrufen">
+                        <i class="bi bi-telephone me-2" aria-hidden="true"></i>{{ company_phone }}
                     </a>
                 </div>
-            </div>
+            </aside>
         </div>
     </div>
 </section>
 
 <!-- Fliesen Gallery -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-light" aria-labelledby="gallery-heading">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6">Unsere Fliesen-Kollektion</h2>
+            <h2 id="gallery-heading" class="display-6">Unsere Fliesen-Kollektion</h2>
             <p class="text-muted">Entdecken Sie unsere exklusiven Fliesen für jeden Geschmack</p>
         </div>
         
@@ -103,9 +111,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/grossformat.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Großformat Fliesen">
+                         class="img-fluid rounded shadow" 
+                         alt="Großformat Fliesen 120x120cm bei Hermitage Frankfurt"
+                         title="Großformat Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Großformat</h5>
+                        <h3>Großformat</h3>
                         <p>Moderne großformatige Fliesen</p>
                     </div>
                 </div>
@@ -113,9 +125,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/naturstein.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Naturstein Optik">
+                         class="img-fluid rounded shadow" 
+                         alt="Naturstein-Optik Fliesen – Keramik in Steinoptik"
+                         title="Naturstein-Optik Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Naturstein-Optik</h5>
+                        <h3>Naturstein-Optik</h3>
                         <p>Elegante Steinoptik-Fliesen</p>
                     </div>
                 </div>
@@ -123,9 +139,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/marmor.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Marmor Fliesen">
+                         class="img-fluid rounded shadow" 
+                         alt="Marmor Fliesen – Luxuriöse Marmor-Optik bei Hermitage"
+                         title="Marmor Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Marmor</h5>
+                        <h3>Marmor</h3>
                         <p>Luxuriöse Marmor-Fliesen</p>
                     </div>
                 </div>
@@ -133,9 +153,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/mosaic.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Mosaik Fliesen">
+                         class="img-fluid rounded shadow" 
+                         alt="Mosaik Fliesen – Kunstvolle Mosaikdesigns"
+                         title="Mosaik Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Mosaik</h5>
+                        <h3>Mosaik</h3>
                         <p>Kunstvolle Mosaikfliesen</p>
                     </div>
                 </div>
@@ -143,9 +167,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/wood.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Holzoptik Fliesen">
+                         class="img-fluid rounded shadow" 
+                         alt="Holzoptik Fliesen – Warme Holzoptik für Ihr Zuhause"
+                         title="Holzoptik Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Holzoptik</h5>
+                        <h3>Holzoptik</h3>
                         <p>Warme Holzoptik-Fliesen</p>
                     </div>
                 </div>
@@ -153,9 +181,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/subway-tiles.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Metro Fliesen">
+                         class="img-fluid rounded shadow" 
+                         alt="Metro Fliesen – Klassische Subway Tiles"
+                         title="Metro-Style Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Metro-Style</h5>
+                        <h3>Metro-Style</h3>
                         <p>Klassische Subway Tiles</p>
                     </div>
                 </div>
@@ -163,9 +195,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/outdoor.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Outdoor Fliesen">
+                         class="img-fluid rounded shadow" 
+                         alt="Outdoor Fliesen – Terrassenfliesen und Außenfliesen"
+                         title="Outdoor Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Outdoor</h5>
+                        <h3>Outdoor</h3>
                         <p>Terrassen- und Außenfliesen</p>
                     </div>
                 </div>
@@ -173,9 +209,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/brick.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Brick Fliesen">
+                         class="img-fluid rounded shadow" 
+                         alt="Brick Fliesen – Moderne Backsteinoptik"
+                         title="Brick-Style Fliesen"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Brick</h5>
+                        <h3>Brick</h3>
                         <p>Moderne Backsteinoptik</p>
                     </div>
                 </div>
@@ -183,9 +223,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="gallery-card">
                     <img src="{{ url_for('static', filename='images/fliesen/slabs.jpg') }}" 
-                         class="img-fluid rounded shadow" alt="Slabs">
+                         class="img-fluid rounded shadow" 
+                         alt="XXL Slabs – Großformatige Fliesen und Platten"
+                         title="XXL Slabs"
+                         width="400" height="300"
+                         loading="lazy">
                     <div class="gallery-overlay">
-                        <h5>Slabs</h5>
+                        <h3>Slabs</h3>
                         <p>XXL Fliesen & Platten</p>
                     </div>
                 </div>

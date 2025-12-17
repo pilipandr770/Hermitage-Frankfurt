@@ -173,9 +173,13 @@ def sitemap():
         {'url': '/innenausstattung/', 'priority': '0.9', 'changefreq': 'weekly'},
         {'url': '/about/', 'priority': '0.7', 'changefreq': 'monthly'},
         {'url': '/kontakt/', 'priority': '0.8', 'changefreq': 'monthly'},
+        {'url': '/service/', 'priority': '0.8', 'changefreq': 'monthly'},
+        {'url': '/trends/', 'priority': '0.8', 'changefreq': 'monthly'},
         {'url': '/blog/', 'priority': '0.8', 'changefreq': 'daily'},
         {'url': '/impressum/', 'priority': '0.3', 'changefreq': 'yearly'},
         {'url': '/datenschutz/', 'priority': '0.3', 'changefreq': 'yearly'},
+        {'url': '/agb/', 'priority': '0.3', 'changefreq': 'yearly'},
+        {'url': '/cookie-richtlinie/', 'priority': '0.3', 'changefreq': 'yearly'},
     ]
     
     # Города

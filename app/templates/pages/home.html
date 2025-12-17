@@ -1,35 +1,43 @@
 {% extends "base.html" %}
 
+{% block title %}Hermitage Frankfurt – Premium Fliesen & Interior Design Showroom{% endblock %}
+{% block description %}Besuchen Sie unseren 500m² Fliesen-Showroom in Frankfurt ✓ Naturstein ✓ Feinsteinzeug ✓ Mosaik ✓ Badmöbel ✓ Persönliche Beratung ☎ 069-90475570{% endblock %}
+{% block keywords %}Fliesen Frankfurt, Fliesenausstellung Frankfurt, Naturstein Frankfurt, Badezimmer Fliesen, Feinsteinzeug, Marmor Fliesen, Hermitage Showroom{% endblock %}
+
+{% block preload %}
+<link rel="preload" href="{{ url_for('static', filename='images/hero/slide-1.jpg') }}" as="image" fetchpriority="high">
+{% endblock %}
+
 {% block content %}
 <!-- Hero Fullscreen Carousel -->
-<section class="hero-fullscreen position-relative">
+<section class="hero-fullscreen position-relative" aria-label="Willkommen bei Hermitage Frankfurt">
     <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
         <!-- Indicators -->
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
         </div>
         
         <div class="carousel-inner">
-            <!-- Slide 1: Ganz oben bei Fliesen -->
+            <!-- Slide 1: Hauptseite mit H1 -->
             <div class="carousel-item active">
                 <div class="hero-slide-fullscreen" style="background-image: url('{{ url_for('static', filename='images/hero/slide-1.jpg') }}');">
                     <div class="hero-overlay-gradient"></div>
                     <div class="hero-content">
-                        <h1 class="display-2 text-white fw-bold text-uppercase mb-3">Herzlich Willkommen</h1>
-                        <h2 class="display-5 text-white mb-4">bei Hermitage</h2>
+                        <h1 class="display-2 text-white fw-bold text-uppercase mb-3">Fliesen & Interior Design Frankfurt</h1>
+                        <p class="display-6 text-white mb-4">Herzlich Willkommen bei Hermitage</p>
                         <div class="hero-buttons">
-                            <a href="{{ url_for('main.fliesen') }}" class="btn btn-light btn-lg px-4 me-3">Fliesen</a>
-                            <a href="{{ url_for('main.innenausstattung') }}" class="btn btn-outline-light btn-lg px-4">Innen Ausstattung</a>
+                            <a href="{{ url_for('main.fliesen') }}" class="btn btn-light btn-lg px-4 me-3" title="Fliesen-Kollektion ansehen">Fliesen</a>
+                            <a href="{{ url_for('main.innenausstattung') }}" class="btn btn-outline-light btn-lg px-4" title="Innenausstattung entdecken">Innen Ausstattung</a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Slide 2: Back New -->
+            <!-- Slide 2: Premium Fliesen -->
             <div class="carousel-item">
                 <div class="hero-slide-fullscreen" style="background-image: url('{{ url_for('static', filename='images/hero/slide-2.png') }}');">
                     <div class="hero-overlay-gradient"></div>
@@ -37,13 +45,13 @@
                         <h2 class="display-3 text-white fw-bold mb-3">Premium Fliesen</h2>
                         <p class="lead text-white mb-4">Exklusive Kollektionen für Ihr Zuhause</p>
                         <div class="hero-buttons">
-                            <a href="{{ url_for('main.fliesen') }}" class="btn btn-light btn-lg px-4">Kollektion entdecken</a>
+                            <a href="{{ url_for('main.fliesen') }}" class="btn btn-light btn-lg px-4" title="Fliesen-Kollektion entdecken">Kollektion entdecken</a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Slide 3: Future -->
+            <!-- Slide 3: Trends 2025 -->
             <div class="carousel-item">
                 <div class="hero-slide-fullscreen" style="background-image: url('{{ url_for('static', filename='images/hero/slide-3.jpg') }}');">
                     <div class="hero-overlay-gradient"></div>
@@ -51,13 +59,13 @@
                         <h2 class="display-3 text-white fw-bold mb-3">Trends 2025</h2>
                         <p class="lead text-white mb-4">Die neuesten Trends im Fliesendesign</p>
                         <div class="hero-buttons">
-                            <a href="{{ url_for('main.trends') }}" class="btn btn-light btn-lg px-4">Trends ansehen</a>
+                            <a href="{{ url_for('main.trends') }}" class="btn btn-light btn-lg px-4" title="Aktuelle Fliesentrends ansehen">Trends ansehen</a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Slide 4: Individual -->
+            <!-- Slide 4: Beratung -->
             <div class="carousel-item">
                 <div class="hero-slide-fullscreen" style="background-image: url('{{ url_for('static', filename='images/hero/slide-4.png') }}');">
                     <div class="hero-overlay-gradient"></div>
@@ -65,8 +73,8 @@
                         <h2 class="display-3 text-white fw-bold mb-3">Individuelle Beratung</h2>
                         <p class="lead text-white mb-4">Persönliche Konzepte für Ihre Räume</p>
                         <div class="hero-buttons">
-                            <a href="{{ url_for('main.service') }}" class="btn btn-light btn-lg px-4 me-3">Unsere Services</a>
-                            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg px-4">Termin vereinbaren</a>
+                            <a href="{{ url_for('main.service') }}" class="btn btn-light btn-lg px-4 me-3" title="Unsere Services kennenlernen">Unsere Services</a>
+                            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg px-4" title="Beratungstermin vereinbaren">Termin vereinbaren</a>
                         </div>
                     </div>
                 </div>
@@ -80,8 +88,8 @@
                         <h2 class="display-3 text-white fw-bold mb-3">Showroom Frankfurt</h2>
                         <p class="lead text-white mb-4">Besuchen Sie uns auf über 500m² Ausstellungsfläche</p>
                         <div class="hero-buttons">
-                            <a href="{{ url_for('main.about') }}" class="btn btn-light btn-lg px-4 me-3">Über uns</a>
-                            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg px-4">Anfahrt</a>
+                            <a href="{{ url_for('main.about') }}" class="btn btn-light btn-lg px-4 me-3" title="Mehr über Hermitage erfahren">Über uns</a>
+                            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg px-4" title="Anfahrt zum Showroom">Anfahrt</a>
                         </div>
                     </div>
                 </div>
@@ -90,11 +98,11 @@
         
         <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Zurück</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Weiter</span>
         </button>
         
@@ -108,14 +116,19 @@
 </section>
 
 <!-- Welcome Section -->
-<section id="welcome" class="py-5">
+<section id="welcome" class="py-5" aria-labelledby="welcome-heading">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <img src="{{ url_for('static', filename='images/showroom.jpg') }}" alt="Hermitage Showroom" class="img-fluid rounded shadow">
+                <img src="{{ url_for('static', filename='images/showroom.jpg') }}" 
+                     alt="Hermitage Fliesen Showroom in Frankfurt am Main – 500m² Ausstellungsfläche" 
+                     title="Hermitage Showroom Frankfurt"
+                     class="img-fluid rounded shadow"
+                     width="600" height="400"
+                     loading="lazy">
             </div>
             <div class="col-lg-6">
-                <h2 class="display-5 mb-4">Ihre Fliesen-Experten in Frankfurt</h2>
+                <h2 id="welcome-heading" class="display-5 mb-4">Ihre Fliesen-Experten in Frankfurt</h2>
                 <p class="lead text-muted mb-4">
                     Fliesen sind unsere Leidenschaft, die wir von Frankfurt aus in das ganze Land transportieren, 
                     damit auch Ihre Räume in einem besonderen Flair erstrahlen.
@@ -125,26 +138,31 @@
                     In unseren Ausstellungsräumen in der Hanauer Landstraße können Sie sich selbst von der Qualität 
                     und der einzigartigen Gestaltung jeder einzelnen Fliese überzeugen.
                 </p>
-                <a href="{{ url_for('main.about') }}" class="btn btn-outline-primary">Mehr über uns</a>
+                <a href="{{ url_for('main.about') }}" class="btn btn-outline-primary" title="Mehr über Hermitage Frankfurt erfahren">Mehr über uns</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Categories Section -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-light" aria-labelledby="categories-heading">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5">Unsere Bereiche</h2>
+            <h2 id="categories-heading" class="display-5">Unsere Bereiche</h2>
             <p class="text-muted">Entdecken Sie unser vielfältiges Angebot</p>
         </div>
         
         <div class="row g-4">
             <!-- Fliesen -->
             <div class="col-md-6">
-                <a href="{{ url_for('main.fliesen') }}" class="card category-card text-decoration-none h-100">
+                <a href="{{ url_for('main.fliesen') }}" class="card category-card text-decoration-none h-100" title="Fliesen-Kollektion bei Hermitage Frankfurt entdecken">
                     <div class="card-img-overlay-wrapper">
-                        <img src="{{ url_for('static', filename='images/categories/fliesen.jpg') }}" class="card-img" alt="Fliesen">
+                        <img src="{{ url_for('static', filename='images/categories/fliesen.jpg') }}" 
+                             class="card-img" 
+                             alt="Premium Fliesen – Feinsteinzeug, Naturstein, Marmor bei Hermitage Frankfurt"
+                             title="Fliesen-Sortiment"
+                             width="600" height="400"
+                             loading="lazy">
                         <div class="card-img-overlay d-flex align-items-end">
                             <div class="text-white">
                                 <h3 class="card-title">Fliesen</h3>
@@ -157,9 +175,14 @@
             
             <!-- Innenausstattung -->
             <div class="col-md-6">
-                <a href="{{ url_for('main.innenausstattung') }}" class="card category-card text-decoration-none h-100">
+                <a href="{{ url_for('main.innenausstattung') }}" class="card category-card text-decoration-none h-100" title="Innenausstattung bei Hermitage Frankfurt entdecken">
                     <div class="card-img-overlay-wrapper">
-                        <img src="{{ url_for('static', filename='images/categories/innenausstattung.jpg') }}" class="card-img" alt="Innenausstattung">
+                        <img src="{{ url_for('static', filename='images/categories/innenausstattung.jpg') }}" 
+                             class="card-img" 
+                             alt="Innenausstattung – Badmöbel, Armaturen, Sanitär bei Hermitage Frankfurt"
+                             title="Innenausstattung-Sortiment"
+                             width="600" height="400"
+                             loading="lazy">
                         <div class="card-img-overlay d-flex align-items-end">
                             <div class="text-white">
                                 <h3 class="card-title">Innenausstattung</h3>
@@ -174,33 +197,34 @@
 </section>
 
 <!-- Features Section -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="features-heading">
     <div class="container">
+        <h2 id="features-heading" class="visually-hidden">Unsere Vorteile</h2>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="text-center p-4">
                     <div class="feature-icon mb-3">
-                        <i class="bi bi-award text-primary" style="font-size: 3rem;"></i>
+                        <i class="bi bi-award text-primary" style="font-size: 3rem;" aria-hidden="true"></i>
                     </div>
-                    <h4>Seit 1998</h4>
+                    <h3>Seit 1998</h3>
                     <p class="text-muted">Über 25 Jahre Erfahrung in Frankfurt am Main</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="text-center p-4">
                     <div class="feature-icon mb-3">
-                        <i class="bi bi-gem text-primary" style="font-size: 3rem;"></i>
+                        <i class="bi bi-gem text-primary" style="font-size: 3rem;" aria-hidden="true"></i>
                     </div>
-                    <h4>Premium Qualität</h4>
+                    <h3>Premium Qualität</h3>
                     <p class="text-muted">Exklusive Marken und hochwertige Materialien</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="text-center p-4">
                     <div class="feature-icon mb-3">
-                        <i class="bi bi-people text-primary" style="font-size: 3rem;"></i>
+                        <i class="bi bi-people text-primary" style="font-size: 3rem;" aria-hidden="true"></i>
                     </div>
-                    <h4>Persönliche Beratung</h4>
+                    <h3>Persönliche Beratung</h3>
                     <p class="text-muted">Individuelle Konzepte für Ihre Räume</p>
                 </div>
             </div>
@@ -209,30 +233,30 @@
 </section>
 
 <!-- CTA Section -->
-<section class="cta-section py-5 bg-primary text-white">
+<section class="cta-section py-5 bg-primary text-white" aria-labelledby="cta-heading">
     <div class="container text-center">
-        <h2 class="display-6 mb-4">Besuchen Sie unseren Showroom</h2>
+        <h2 id="cta-heading" class="display-6 mb-4">Besuchen Sie unseren Showroom</h2>
         <p class="lead mb-4">
             Lassen Sie sich in unserer Fliesenausstellung inspirieren und entdecken Sie 
             eine neue Welt des Ambientes.
         </p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="tel:+496990475570" class="btn btn-light btn-lg">
-                <i class="bi bi-telephone-fill me-2"></i>{{ company_phone }}
+            <a href="tel:+496990475570" class="btn btn-light btn-lg" title="Hermitage Frankfurt anrufen">
+                <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>{{ company_phone }}
             </a>
-            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg">
-                <i class="bi bi-geo-alt-fill me-2"></i>Anfahrt
+            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg" title="Anfahrt zum Hermitage Showroom Frankfurt">
+                <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>Anfahrt
             </a>
         </div>
     </div>
 </section>
 
 <!-- Blog Preview -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="blog-heading">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Aktuelle Beiträge</h2>
-            <a href="{{ url_for('blog.index') }}" class="btn btn-outline-primary">Alle Beiträge</a>
+            <h2 id="blog-heading">Aktuelle Beiträge</h2>
+            <a href="{{ url_for('blog.index') }}" class="btn btn-outline-primary" title="Alle Blog-Beiträge lesen">Alle Beiträge</a>
         </div>
         
         <div class="row g-4">

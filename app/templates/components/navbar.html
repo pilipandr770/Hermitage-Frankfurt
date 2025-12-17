@@ -1,13 +1,13 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Hauptnavigation">
     <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand" href="{{ url_for('main.home') }}">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Hermitage Frankfurt" height="50" class="d-inline-block align-top">
+        <a class="navbar-brand" href="{{ url_for('main.home') }}" title="Hermitage Frankfurt – Startseite">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Hermitage Frankfurt Logo" height="50" width="150" class="d-inline-block align-top">
         </a>
         
         <!-- Mobile Toggle -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Navigation umschalten">
             <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -15,53 +15,53 @@
         <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+                    <a class="nav-link" href="{{ url_for('main.home') }}" title="Zur Startseite von Hermitage Frankfurt">Home</a>
                 </li>
                 
                 <!-- Fliesen Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{{ url_for('main.fliesen') }}" id="fliesenDropdown" role="button" data-bs-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ url_for('main.fliesen') }}" id="fliesenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Fliesen-Kollektion ansehen">
                         Fliesen
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen') }}">Übersicht</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="fliesenDropdown">
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen') }}" title="Alle Fliesen bei Hermitage Frankfurt">Übersicht</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='offenbach') }}">Fliesen Offenbach</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='hanau') }}">Fliesen Hanau</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='maintal') }}">Fliesen Maintal</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='darmstadt') }}">Fliesen Darmstadt</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='aschaffenburg') }}">Fliesen Aschaffenburg</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='offenbach') }}" title="Fliesen für Offenbach – Beratung und Lieferung">Fliesen Offenbach</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='hanau') }}" title="Fliesen für Hanau – Beratung und Lieferung">Fliesen Hanau</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='maintal') }}" title="Fliesen für Maintal – Beratung und Lieferung">Fliesen Maintal</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='darmstadt') }}" title="Fliesen für Darmstadt – Beratung und Lieferung">Fliesen Darmstadt</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='aschaffenburg') }}" title="Fliesen für Aschaffenburg – Beratung und Lieferung">Fliesen Aschaffenburg</a></li>
                     </ul>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.innenausstattung') }}">Innenausstattung</a>
+                    <a class="nav-link" href="{{ url_for('main.innenausstattung') }}" title="Innenausstattung – Badmöbel, Armaturen & Sanitär">Innenausstattung</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.about') }}">Über Uns</a>
+                    <a class="nav-link" href="{{ url_for('main.about') }}" title="Über Hermitage Frankfurt – Unsere Geschichte">Über Uns</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.service') }}">Service</a>
+                    <a class="nav-link" href="{{ url_for('main.service') }}" title="Unser Service – Beratung, Lieferung, Verlegung">Service</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.trends') }}">Trends</a>
+                    <a class="nav-link" href="{{ url_for('main.trends') }}" title="Fliesen Trends 2025 – Aktuelle Entwicklungen">Trends</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('blog.index') }}">Blog</a>
+                    <a class="nav-link" href="{{ url_for('blog.index') }}" title="Blog – Tipps und Inspiration für Fliesen & Interior">Blog</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.contact') }}">Kontakt</a>
+                    <a class="nav-link" href="{{ url_for('main.contact') }}" title="Kontakt & Anfahrt zu Hermitage Frankfurt">Kontakt</a>
                 </li>
             </ul>
             
             <!-- Phone CTA -->
-            <a href="tel:+496990475570" class="btn btn-primary ms-lg-3">
-                <i class="bi bi-telephone-fill me-1"></i> Anrufen
+            <a href="tel:+496990475570" class="btn btn-primary ms-lg-3" title="Jetzt anrufen: 069-90475570">
+                <i class="bi bi-telephone-fill me-1" aria-hidden="true"></i> Anrufen
             </a>
         </div>
     </div>

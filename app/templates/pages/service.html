@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Service{% endblock %}
+{% block title %}Service Hermitage Frankfurt – Beratung, Lieferung & Verlegung{% endblock %}
+{% block description %}Unser Service in Frankfurt ✓ Kostenlose Beratung ✓ 3D-Visualisierung ✓ Musterversand ✓ Lieferung ✓ Professionelle Verlegung. Alles aus einer Hand.{% endblock %}
+{% block keywords %}Fliesen Service Frankfurt, Beratung, Lieferung, Verlegung, 3D-Visualisierung, Musterversand{% endblock %}
+
+{% block preload %}
+<link rel="preload" href="{{ url_for('static', filename='images/hero/service-hero.jpg') }}" as="image" fetchpriority="high">
+{% endblock %}
 
 {% block content %}
 <!-- Hero -->
-<section class="page-hero" style="background-image: linear-gradient(rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 0.7)), url('{{ url_for('static', filename='images/hero/service-hero.jpg') }}');">
+<section class="page-hero" style="background-image: linear-gradient(rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 0.7)), url('{{ url_for('static', filename='images/hero/service-hero.jpg') }}');" aria-labelledby="page-title">
     <div class="container">
-        <h1 class="display-4 text-white">Unser Service</h1>
-        <p class="lead text-white-75">Von der Beratung bis zur Umsetzung – wir sind für Sie da</p>
+        <h1 id="page-title" class="display-4 text-white">Service Hermitage Frankfurt – Von Beratung bis Verlegung</h1>
+        <p class="lead text-white-75">Kostenlose Beratung, 3D-Visualisierung, Lieferung & professionelle Verlegung</p>
     </div>
 </section>
 

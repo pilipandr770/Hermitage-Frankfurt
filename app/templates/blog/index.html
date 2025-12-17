@@ -1,44 +1,54 @@
 {% extends "base.html" %}
 
-{% block title %}Blog | Hermitage Frankfurt{% endblock %}
+{% block title %}Blog – Fliesen Tipps & Interior Design Inspiration | Hermitage Frankfurt{% endblock %}
+{% block description %}Tipps, Trends und Inspiration für Fliesen & Interior Design ✓ Aktuelle Beiträge ✓ Expertenrat ✓ DIY-Anleitungen. Blog von Hermitage Frankfurt.{% endblock %}
+{% block keywords %}Fliesen Blog, Interior Design Tipps, Fliesentrends, Badezimmer Inspiration, Hermitage Blog{% endblock %}
+
+{% block preload %}
+<link rel="preload" href="{{ url_for('static', filename='images/blog-hero.jpg') }}" as="image" fetchpriority="high">
+{% endblock %}
 
 {% block content %}
 <!-- Hero -->
-<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/blog-hero.jpg') }}');">
+<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/blog-hero.jpg') }}');" aria-labelledby="page-title">
     <div class="hero-overlay"></div>
     <div class="container">
-        <h1 class="display-5 text-white">Blog</h1>
+        <h1 id="page-title" class="display-5 text-white">Blog – Fliesen Tipps & Inspiration</h1>
         <p class="lead text-white">Trends, Tipps und Inspirationen rund um Fliesen und Interior Design</p>
     </div>
 </section>
 
 <!-- Blog List -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="blog-list-heading">
     <div class="container">
+        <h2 id="blog-list-heading" class="visually-hidden">Aktuelle Blog-Beiträge</h2>
         {% if posts.items %}
             <div class="row g-4">
                 {% for post in posts.items %}
                 <div class="col-md-6 col-lg-4">
                             <article class="card h-100 border-0 shadow-sm">
-                                <a href="{{ url_for('blog.post', slug=post.slug) }}">
+                                <a href="{{ url_for('blog.post', slug=post.slug) }}" title="{{ post.title }} lesen">
                                     <img src="{{ post.featured_image or url_for('static', filename='images/blog/default.jpg') }}" 
-                                         class="card-img-top" alt="{{ post.title }}">
+                                         class="card-img-top" 
+                                         alt="{{ post.title }} – Hermitage Frankfurt Blog"
+                                         width="400" height="250"
+                                         loading="lazy">
                                 </a>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <span class="badge bg-primary">{{ post.category }}</span>
-                                        <small class="text-muted">{{ post.published_at.strftime('%d.%m.%Y') if post.published_at else '' }}</small>
+                                        <small class="text-muted"><time datetime="{{ post.published_at.strftime('%Y-%m-%d') if post.published_at else '' }}">{{ post.published_at.strftime('%d.%m.%Y') if post.published_at else '' }}</time></small>
                                     </div>
-                                    <h5 class="card-title">
-                                        <a href="{{ url_for('blog.post', slug=post.slug) }}" class="text-decoration-none text-dark">
+                                    <h3 class="card-title h5">
+                                        <a href="{{ url_for('blog.post', slug=post.slug) }}" class="text-decoration-none text-dark" title="{{ post.title }} lesen">
                                             {{ post.title }}
                                         </a>
-                                    </h5>
+                                    </h3>
                                     <p class="card-text text-muted">{{ post.excerpt[:120] }}...</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-0">
-                                    <a href="{{ url_for('blog.post', slug=post.slug) }}" class="btn btn-sm btn-outline-primary">
-                                        Weiterlesen <i class="bi bi-arrow-right ms-1"></i>
+                                    <a href="{{ url_for('blog.post', slug=post.slug) }}" class="btn btn-sm btn-outline-primary" title="Weiterlesen: {{ post.title }}">
+                                        Weiterlesen <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </article>

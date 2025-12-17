@@ -1,42 +1,50 @@
 {% extends "base.html" %}
 
+{% block title %}Kontakt Hermitage Frankfurt – Beratungstermin & Anfahrt{% endblock %}
+{% block description %}Kontaktieren Sie Hermitage Frankfurt ✓ Tel: 069-90475570 ✓ Hanauer Landstraße 421 ✓ Kostenlose Beratung ✓ Showroom-Besichtigung ✓ Anfahrt & Öffnungszeiten{% endblock %}
+{% block keywords %}Kontakt Hermitage Frankfurt, Fliesen Beratung Frankfurt, Showroom Termin, Anfahrt Hermitage{% endblock %}
+
+{% block preload %}
+<link rel="preload" href="{{ url_for('static', filename='images/contact-hero.jpg') }}" as="image" fetchpriority="high">
+{% endblock %}
+
 {% block content %}
 <!-- Hero -->
-<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/contact-hero.jpg') }}');">
+<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/contact-hero.jpg') }}');" aria-labelledby="page-title">
     <div class="hero-overlay"></div>
     <div class="container">
-        <h1 class="display-5 text-white">Kontakt</h1>
-        <p class="lead text-white">Wir freuen uns auf Ihre Anfrage</p>
+        <h1 id="page-title" class="display-5 text-white">Kontakt Hermitage Frankfurt – Wir beraten Sie gerne</h1>
+        <p class="lead text-white">Persönliche Beratung, Showroom-Termin oder Anfrage – wir freuen uns auf Sie</p>
     </div>
 </section>
 
 <!-- Contact Section -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="contact-form-heading">
     <div class="container">
         <div class="row g-5">
             <!-- Contact Form -->
             <div class="col-lg-7">
-                <h2 class="mb-4">Schreiben Sie uns</h2>
+                <h2 id="contact-form-heading" class="mb-4">Schreiben Sie uns</h2>
                 
                 <form method="POST" action="{{ url_for('main.contact') }}">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label class="form-label">Name *</label>
-                            <input type="text" name="name" class="form-control" required>
+                            <label class="form-label" for="contact-name">Name *</label>
+                            <input type="text" name="name" id="contact-name" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">E-Mail *</label>
-                            <input type="email" name="email" class="form-control" required>
+                            <label class="form-label" for="contact-email">E-Mail *</label>
+                            <input type="email" name="email" id="contact-email" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Telefon</label>
-                            <input type="tel" name="phone" class="form-control">
+                            <label class="form-label" for="contact-phone">Telefon</label>
+                            <input type="tel" name="phone" id="contact-phone" class="form-control">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label">Betreff</label>
-                            <select name="subject" class="form-select">
+                            <label class="form-label" for="contact-subject">Betreff</label>
+                            <select name="subject" id="contact-subject" class="form-select">
                                 <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
                                 <option value="Beratungstermin">Beratungstermin</option>
                                 <option value="Fliesen">Fliesen</option>
@@ -45,20 +53,20 @@
                             </select>
                         </div>
                         <div class="col-12">
-                            <label class="form-label">Nachricht *</label>
-                            <textarea name="message" class="form-control" rows="5" required></textarea>
+                            <label class="form-label" for="contact-message">Nachricht *</label>
+                            <textarea name="message" id="contact-message" class="form-control" rows="5" required></textarea>
                         </div>
                         <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="privacy" required>
                                 <label class="form-check-label" for="privacy">
-                                    Ich habe die <a href="{{ url_for('main.datenschutz') }}" target="_blank">Datenschutzerklärung</a> gelesen und akzeptiere sie. *
+                                    Ich habe die <a href="{{ url_for('main.datenschutz') }}" target="_blank" title="Datenschutzerklärung lesen">Datenschutzerklärung</a> gelesen und akzeptiere sie. *
                                 </label>
                             </div>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="bi bi-send me-2"></i>Nachricht senden
+                                <i class="bi bi-send me-2" aria-hidden="true"></i>Nachricht senden
                             </button>
                         </div>
                     </div>
@@ -66,7 +74,7 @@
             </div>
             
             <!-- Contact Info -->
-            <div class="col-lg-5">
+            <aside class="col-lg-5">
                 <h2 class="mb-4">Kontaktdaten</h2>
                 
                 <div class="contact-info-card bg-light p-4 rounded mb-4">

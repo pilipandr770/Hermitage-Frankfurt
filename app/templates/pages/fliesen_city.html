@@ -1,28 +1,41 @@
 {% extends "base.html" %}
 
+{% block title %}Fliesen {{ city | capitalize }} – Beratung & Lieferung | Hermitage Frankfurt{% endblock %}
+{% block description %}Fliesen für {{ city | capitalize }} ✓ Feinsteinzeug ✓ Naturstein ✓ Mosaik ✓ Lieferung ✓ Beratung im 500m² Showroom Frankfurt. Ihr Experte für {{ city | capitalize }}.{% endblock %}
+{% block keywords %}Fliesen {{ city | capitalize }}, Fliesenhändler {{ city | capitalize }}, Bodenfliesen {{ city | capitalize }}, Wandfliesen {{ city | capitalize }}, Hermitage{% endblock %}
+
 {% block content %}
 <!-- Hero -->
-<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/fliesen-' ~ city ~ '.jpg') }}');">
+<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/fliesen-' ~ city ~ '.jpg') }}');" aria-labelledby="page-title">
     <div class="hero-overlay"></div>
     <div class="container">
-        <h1 class="display-5 text-white">Fliesen {{ city | capitalize }}</h1>
-        <p class="lead text-white">Ihr Fliesenexperte für {{ city | capitalize }} und Umgebung</p>
+        <h1 id="page-title" class="display-5 text-white">Fliesen {{ city | capitalize }} – Ihr Experte für Premium-Fliesen</h1>
+        <p class="lead text-white">Beratung, Lieferung und Service für {{ city | capitalize }} und Umgebung</p>
     </div>
 </section>
 
 <!-- Breadcrumb -->
-<nav class="bg-light py-2">
+<nav class="bg-light py-2" aria-label="Breadcrumb">
     <div class="container">
-        <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="{{ url_for('main.home') }}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ url_for('main.fliesen') }}">Fliesen</a></li>
-            <li class="breadcrumb-item active">{{ city | capitalize }}</li>
+        <ol class="breadcrumb mb-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="{{ url_for('main.home') }}" itemprop="item" title="Zur Startseite"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="{{ url_for('main.fliesen') }}" itemprop="item" title="Fliesen-Übersicht"><span itemprop="name">Fliesen</span></a>
+                <meta itemprop="position" content="2">
+            </li>
+            <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+                <span itemprop="name">{{ city | capitalize }}</span>
+                <meta itemprop="position" content="3">
+            </li>
         </ol>
     </div>
 </nav>
 
 <!-- Content -->
-<section class="py-5">
+<section class="py-5" aria-labelledby="content-heading">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -31,7 +44,7 @@
                         {{ page.content | safe }}
                     </div>
                 {% else %}
-                    <h2>Fliesen für {{ city | capitalize }} – Qualität aus Frankfurt</h2>
+                    <h2 id="content-heading">Fliesen für {{ city | capitalize }} – Qualität aus Frankfurt</h2>
                     
                     <p class="lead">
                         Sie suchen hochwertige Fliesen in {{ city | capitalize }}? Hermitage Frankfurt ist Ihr 

@@ -1,22 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Trends{% endblock %}
+{% block title %}Fliesen Trends 2025 – Großformat, Naturstein-Optik & mehr | Hermitage{% endblock %}
+{% block description %}Aktuelle Fliesen-Trends 2025 ✓ Großformat ✓ Naturstein-Optik ✓ Terrakotta ✓ 3D-Strukturen. Entdecken Sie die neuesten Entwicklungen bei Hermitage Frankfurt.{% endblock %}
+{% block keywords %}Fliesen Trends 2025, Großformat Fliesen, Naturstein-Optik, Terrakotta Fliesen, moderne Fliesen{% endblock %}
+
+{% block preload %}
+<link rel="preload" href="{{ url_for('static', filename='images/hero/trends-hero.jpg') }}" as="image" fetchpriority="high">
+{% endblock %}
 
 {% block content %}
 <!-- Hero -->
-<section class="page-hero" style="background-image: linear-gradient(rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 0.7)), url('{{ url_for('static', filename='images/hero/trends-hero.jpg') }}');">
+<section class="page-hero" style="background-image: linear-gradient(rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 0.7)), url('{{ url_for('static', filename='images/hero/trends-hero.jpg') }}');" aria-labelledby="page-title">
     <div class="container">
-        <h1 class="display-4 text-white">Trends 2025</h1>
-        <p class="lead text-white-75">Die neuesten Entwicklungen in Fliesen und Interior Design</p>
+        <h1 id="page-title" class="display-4 text-white">Fliesen Trends 2025 – Aktuelle Entwicklungen</h1>
+        <p class="lead text-white-75">Die neuesten Trends in Fliesen, Materialien und Interior Design</p>
     </div>
 </section>
 
 <!-- Intro -->
-<section class="section">
+<section class="section" aria-labelledby="intro-heading">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h2>Was ist angesagt?</h2>
+                <h2 id="intro-heading">Was ist angesagt?</h2>
                 <p class="lead">Entdecken Sie die aktuellen Trends in der Welt der Fliesen und Innenausstattung. Wir zeigen Ihnen, welche Materialien, Farben und Formate im Trend liegen.</p>
             </div>
         </div>
@@ -24,12 +30,12 @@
 </section>
 
 <!-- Trend 1 -->
-<section class="section bg-light">
+<section class="section bg-light" aria-labelledby="trend1-heading">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
                 <span class="badge bg-primary mb-2">Trend #1</span>
-                <h2>Großformatige Fliesen</h2>
+                <h2 id="trend1-heading">Großformatige Fliesen</h2>
                 <p>Große Fliesen sind nach wie vor stark im Trend. Formate wie 120x120 cm oder sogar 160x320 cm schaffen ein nahtloses, elegantes Erscheinungsbild mit minimalen Fugen.</p>
                 <ul>
                     <li>Weniger Fugen = einfachere Reinigung</li>
@@ -38,7 +44,12 @@
                 </ul>
             </div>
             <div class="col-lg-6">
-                <img src="{{ url_for('static', filename='images/trend-grossformat.jpg') }}" alt="Großformatige Fliesen" class="img-fluid rounded shadow">
+                <img src="{{ url_for('static', filename='images/trend-grossformat.jpg') }}" 
+                     alt="Großformatige Fliesen 120x120cm – modernes Design mit minimalen Fugen"
+                     title="Großformat Fliesen Trend 2025"
+                     class="img-fluid rounded shadow"
+                     width="600" height="400"
+                     loading="lazy">
             </div>
         </div>
     </div>
