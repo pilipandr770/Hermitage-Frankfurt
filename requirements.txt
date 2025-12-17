@@ -1,45 +1,43 @@
 # Hermitage Frankfurt - Flask Website
-# Python 3.11+
+# Python 3.11.x (указать в .python-version)
 
 # Core
-Flask==3.0.0
-Werkzeug==3.0.1
+Flask>=3.0.0
+Werkzeug>=3.0.1
 
 # Database
-Flask-SQLAlchemy==3.1.1
-SQLAlchemy==2.0.23
-Flask-Migrate==4.0.5
+Flask-SQLAlchemy>=3.1.1
+SQLAlchemy>=2.0.23
+Flask-Migrate>=4.0.5
 
 # Authentication
-Flask-Login==0.6.3
-Flask-WTF==1.2.1
+Flask-Login>=0.6.3
+Flask-WTF>=1.2.1
 
 # Security
-flask-talisman==1.1.0
-python-dotenv==1.0.0
+flask-talisman>=1.1.0
+python-dotenv>=1.0.0
 
 # API & AI
-openai==1.6.1
-requests==2.31.0
+openai>=1.6.1
+requests>=2.31.0
 
 # Trends & RSS
-feedparser==6.0.10
-pytrends==4.9.2
+feedparser>=6.0.10
+pytrends>=4.9.2
 
 # Email
-Flask-Mail==0.9.1
+Flask-Mail>=0.10.0
 
 # Utilities
-python-slugify==8.0.1
-markdown==3.5.1
-Pillow==10.1.0
+python-slugify>=8.0.1
+markdown>=3.5.1
+Pillow>=10.4.0
 
 # Scheduling
-APScheduler==3.10.4
+APScheduler>=3.10.4
 
 # Production
-gunicorn==21.2.0
-psycopg2-binary==2.9.9
+gunicorn>=21.2.0
+psycopg2-binary>=2.9.9
 
-# Development
-python-dotenv==1.0.0
