@@ -1,0 +1,171 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Trends & Auto-Generierung{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><i class="bi bi-graph-up me-2"></i>Trends & Auto-Generierung</h1>
+    <form method="post" action="{{ url_for('admin.trends_generate') }}" class="d-flex gap-2">
+        <select name="max_articles" class="form-select" style="width: auto;">
+            <option value="1">1 Artikel</option>
+            <option value="3">3 Artikel</option>
+            <option value="5">5 Artikel</option>
+        </select>
+        <div class="form-check form-switch d-flex align-items-center ms-2">
+            <input class="form-check-input" type="checkbox" name="auto_publish" id="autoPublish">
+            <label class="form-check-label ms-2" for="autoPublish">Sofort veröffentlichen</label>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-magic me-1"></i>Auto-Generieren
+        </button>
+    </form>
+</div>
+
+<div class="row">
+    <!-- Empfohlene Themen -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-lightbulb me-2"></i>Empfohlene Themen für Artikel</h5>
+            </div>
+            <div class="card-body p-0">
+                {% if topics %}
+                <div class="list-group list-group-flush">
+                    {% for topic in topics %}
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">{{ topic.original_title[:80] }}{% if topic.original_title|length > 80 %}...{% endif %}</h6>
+                                <p class="text-muted small mb-2">{{ topic.summary[:150] }}{% if topic.summary|length > 150 %}...{% endif %}</p>
+                                <div class="mb-2">
+                                    {% for kw in topic.suggested_keywords[:4] %}
+                                    <span class="badge bg-secondary me-1">{{ kw }}</span>
+                                    {% endfor %}
+                                </div>
+                                <small class="text-muted">Quelle: {{ topic.source }} | Relevanz: {{ topic.relevance }}/10</small>
+                            </div>
+                            <div class="ms-3">
+                                <form method="post" action="{{ url_for('admin.trends_generate_single') }}">
+                                    <input type="hidden" name="title" value="{{ topic.original_title }}">
+                                    <input type="hidden" name="summary" value="{{ topic.summary }}">
+                                    <input type="hidden" name="source" value="{{ topic.source }}">
+                                    <input type="hidden" name="keywords" value="{{ topic.suggested_keywords | join(',') }}">
+                                    <button type="submit" class="btn btn-sm btn-outline-success">
+                                        <i class="bi bi-pencil-square"></i> Artikel erstellen
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="p-4 text-center text-muted">
+                    <i class="bi bi-cloud-slash" style="font-size: 3rem;"></i>
+                    <p class="mt-2">Keine Trends verfügbar. Prüfen Sie die Internetverbindung.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Alle Trends -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="bi bi-rss me-2"></i>Aktuelle Trend-Nachrichten</h5>
+            </div>
+            <div class="card-body p-0" style="max-height: 600px; overflow-y: auto;">
+                {% if trends %}
+                <div class="list-group list-group-flush">
+                    {% for trend in trends %}
+                    <a href="{{ trend.url or '#' }}" target="_blank" class="list-group-item list-group-item-action">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="mb-1">{{ trend.title[:70] }}{% if trend.title|length > 70 %}...{% endif %}</h6>
+                                <small class="text-muted">{{ trend.source }}</small>
+                            </div>
+                            <span class="badge bg-{{ 'success' if trend.relevance >= 4 else 'warning' if trend.relevance >= 2 else 'secondary' }}">
+                                {{ trend.relevance }}
+                            </span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="p-4 text-center text-muted">
+                    <p>Keine Trends gefunden.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Anleitung -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Wie funktioniert die Auto-Generierung?</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text-center p-3">
+                    <div class="display-4 text-primary mb-2">1</div>
+                    <h6>Trends sammeln</h6>
+                    <p class="text-muted small">Das System sammelt Trends aus RSS-Feeds, Google Trends und News-APIs zum Thema Fliesen und Interior Design.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center p-3">
+                    <div class="display-4 text-primary mb-2">2</div>
+                    <h6>Artikel generieren</h6>
+                    <p class="text-muted small">OpenAI erstellt einen einzigartigen, SEO-optimierten Artikel basierend auf dem Trend mit Fokus auf Frankfurt.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center p-3">
+                    <div class="display-4 text-primary mb-2">3</div>
+                    <h6>Überprüfen & Publizieren</h6>
+                    <p class="text-muted small">Überprüfen Sie den Artikel, nehmen Sie Anpassungen vor und veröffentlichen Sie ihn.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- API Konfiguration -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-gear me-2"></i>API Konfiguration</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-{{ 'success' if config.get('OPENAI_API_KEY') else 'danger' }} me-2"></i>
+                    <span>OpenAI API: {{ 'Konfiguriert' if config.get('OPENAI_API_KEY') else 'Nicht konfiguriert' }}</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-{{ 'success' if config.get('NEWS_API_KEY') else 'warning' }} me-2"></i>
+                    <span>News API: {{ 'Konfiguriert' if config.get('NEWS_API_KEY') else 'Optional' }}</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <span>RSS Feeds: Aktiv ({{ trends | length }} Quellen)</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="text-muted small mb-0">
+            <strong>Tipp:</strong> Fügen Sie Ihre API-Keys in der <code>.env</code> Datei hinzu:<br>
+            <code>OPENAI_API_KEY=sk-...</code><br>
+            <code>NEWS_API_KEY=...</code> (optional, von newsapi.org)
+        </p>
+    </div>
+</div>
+{% endblock %}

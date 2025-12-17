@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.seo_title or post.title }} | Hermitage Frankfurt{% endblock %}
+{% block description %}{{ post.seo_description or post.excerpt }}{% endblock %}
+
+{% block content %}
+<!-- Breadcrumb -->
+<nav class="bg-light py-2">
+    <div class="container">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('main.home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('blog.index') }}">Blog</a></li>
+            <li class="breadcrumb-item active">{{ post.title[:50] }}...</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- Article -->
+<article class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Header -->
+                <header class="mb-4">
+                    <span class="badge bg-primary mb-2">{{ post.category }}</span>
+                    <h1 class="display-5 mb-3">{{ post.title }}</h1>
+                    <div class="d-flex align-items-center text-muted mb-4">
+                        <span><i class="bi bi-calendar me-1"></i> {{ post.published_at.strftime('%d. %B %Y') if post.published_at else '' }}</span>
+                        <span class="mx-3">|</span>
+                        <span><i class="bi bi-eye me-1"></i> {{ post.views_count }} Aufrufe</span>
+                    </div>
+                </header>
+                
+                <!-- Featured Image -->
+                {% if post.featured_image %}
+                <figure class="mb-4">
+                    <img src="{{ post.featured_image }}" alt="{{ post.title }}" class="img-fluid rounded shadow">
+                </figure>
+                {% endif %}
+                
+                <!-- Content -->
+                <div class="article-content">
+                    {{ post.content | safe }}
+                </div>
+                
+                <!-- Tags -->
+                {% if post.tags %}
+                <div class="mt-4 pt-4 border-top">
+                    <strong>Tags:</strong>
+                    {% for tag in post.tags %}
+                    <span class="badge bg-secondary me-1">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <!-- Share -->
+                <div class="mt-4 pt-4 border-top">
+                    <strong>Teilen:</strong>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" target="_blank" class="btn btn-sm btn-outline-primary ms-2">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url={{ request.url }}&text={{ post.title }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.url }}&title={{ post.title }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Related Posts -->
+{% if related %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h3 class="text-center mb-4">Ähnliche Artikel</h3>
+        <div class="row g-4 justify-content-center">
+            {% for rel in related %}
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ rel.featured_image or url_for('static', filename='images/blog/default.jpg') }}" class="card-img-top" alt="{{ rel.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ rel.title }}</h5>
+                        <a href="{{ url_for('blog.post', slug=rel.slug) }}" class="btn btn-sm btn-outline-primary">Weiterlesen</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h3>Haben Sie Fragen?</h3>
+        <p>Unser Team berät Sie gerne persönlich</p>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-light">Kontakt aufnehmen</a>
+    </div>
+</section>
+{% endblock %}

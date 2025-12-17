@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="mb-4">{{ page.title if page else 'Rechtliche Informationen' }}</h1>
+                
+                <div class="legal-content">
+                    {% if page and page.content %}
+                        {{ page.content | safe }}
+                    {% else %}
+                        <!-- Default Impressum -->
+                        {% if 'impressum' in request.path %}
+                            <h2>Angaben gemäß § 5 TMG</h2>
+                            <p>
+                                <strong>Hermitage Home & Design GmbH & Co KG</strong><br>
+                                Hanauer Landstraße 421<br>
+                                60314 Frankfurt am Main
+                            </p>
+                            
+                            <h3>Kontakt</h3>
+                            <p>
+                                Telefon: 069 90475570<br>
+                                E-Mail: info@hermitage-frankfurt.de
+                            </p>
+                            
+                            <h3>Registereintrag</h3>
+                            <p>
+                                HRB 47807, Amtsgericht Frankfurt am Main
+                            </p>
+                            
+                            <h3>Umsatzsteuer-ID</h3>
+                            <p>
+                                USt-IdNr.: DE292856939
+                            </p>
+                            
+                            <h3>Geschäftsführer</h3>
+                            <p>
+                                Leonid Parhomowski
+                            </p>
+                            
+                            <h3>Verantwortlich für den Inhalt</h3>
+                            <p>
+                                Leonid Parhomowski<br>
+                                (Anschrift wie oben)
+                            </p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

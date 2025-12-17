@@ -1,0 +1,143 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- Stats -->
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="card stat-card primary">
+            <div class="card-body">
+                <h6 class="text-muted">Blog-Artikel</h6>
+                <h2>{{ stats.blog_posts }}</h2>
+                <small class="text-muted">{{ stats.published_posts }} veröffentlicht</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card success">
+            <div class="card-body">
+                <h6 class="text-muted">Content-Plan</h6>
+                <h2>{{ stats.content_plans }}</h2>
+                <small class="text-muted">geplante Themen</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card warning">
+            <div class="card-body">
+                <h6 class="text-muted">Chatbot</h6>
+                <h2>{{ stats.chatbot_instructions }}</h2>
+                <small class="text-muted">Anweisungen aktiv</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card info">
+            <div class="card-body">
+                <h6 class="text-muted">Leads</h6>
+                <h2>{{ stats.leads }}</h2>
+                <small class="text-muted">aus {{ stats.chat_sessions }} Chats</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Recent Leads -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Neueste Leads</h5>
+                <a href="{{ url_for('admin.leads_list') }}" class="btn btn-sm btn-outline-primary">Alle anzeigen</a>
+            </div>
+            <div class="card-body">
+                {% if recent_leads %}
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>E-Mail</th>
+                            <th>Datum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for lead in recent_leads %}
+                        <tr>
+                            <td>{{ lead.user_name or '-' }}</td>
+                            <td>{{ lead.user_email or '-' }}</td>
+                            <td>{{ lead.created_at.strftime('%d.%m.%Y') }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="text-muted mb-0">Noch keine Leads vorhanden.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Upcoming Content -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Geplanter Content</h5>
+                <a href="{{ url_for('admin.content_plan_add') }}" class="btn btn-sm btn-primary">
+                    <i class="bi bi-plus"></i> Neu
+                </a>
+            </div>
+            <div class="card-body">
+                {% if upcoming_content %}
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Thema</th>
+                            <th>Datum</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for plan in upcoming_content %}
+                        <tr>
+                            <td>{{ plan.title[:30] }}...</td>
+                            <td>{{ plan.scheduled_date.strftime('%d.%m.%Y') if plan.scheduled_date else '-' }}</td>
+                            <td>
+                                <span class="badge bg-{{ 'success' if plan.status == 'published' else 'warning' if plan.status == 'review' else 'secondary' }}">
+                                    {{ plan.status }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p class="text-muted mb-0">Kein Content geplant. <a href="{{ url_for('admin.content_plan_add') }}">Jetzt planen</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row g-4 mt-2">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Schnellaktionen</h5>
+            </div>
+            <div class="card-body">
+                <a href="{{ url_for('admin.chatbot_add') }}" class="btn btn-outline-primary me-2">
+                    <i class="bi bi-robot"></i> Chatbot-Anweisung hinzufügen
+                </a>
+                <a href="{{ url_for('admin.content_plan_add') }}" class="btn btn-outline-success me-2">
+                    <i class="bi bi-calendar-plus"></i> Content planen
+                </a>
+                <a href="{{ url_for('main.home') }}" target="_blank" class="btn btn-outline-secondary">
+                    <i class="bi bi-eye"></i> Website ansehen
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

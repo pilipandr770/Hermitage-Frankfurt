@@ -1,0 +1,105 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}Chatbot-Anweisungen{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <p class="text-muted mb-0">Verwalten Sie das Wissen und Verhalten des Chatbots</p>
+    <a href="{{ url_for('admin.chatbot_add') }}" class="btn btn-primary">
+        <i class="bi bi-plus"></i> Neue Anweisung
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        {% if instructions %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Typ</th>
+                    <th>Priorität</th>
+                    <th>Status</th>
+                    <th>Aktionen</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inst in instructions %}
+                <tr>
+                    <td>
+                        <strong>{{ inst.title }}</strong>
+                        <br><small class="text-muted">{{ inst.content[:50] }}...</small>
+                    </td>
+                    <td>
+                        <span class="badge bg-{{ 'primary' if inst.instruction_type == 'product' else 'info' if inst.instruction_type == 'faq' else 'secondary' }}">
+                            {{ inst.instruction_type }}
+                        </span>
+                    </td>
+                    <td>{{ inst.priority }}</td>
+                    <td>
+                        {% if inst.is_active %}
+                            <span class="badge bg-success">Aktiv</span>
+                        {% else %}
+                            <span class="badge bg-danger">Inaktiv</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('admin.chatbot_edit', id=inst.id) }}" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <form action="{{ url_for('admin.chatbot_delete', id=inst.id) }}" method="POST" class="d-inline" 
+                              onsubmit="return confirm('Wirklich löschen?')">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-robot text-muted" style="font-size: 4rem;"></i>
+            <h4 class="mt-3">Keine Anweisungen vorhanden</h4>
+            <p class="text-muted">Fügen Sie Wissen und Verhaltensanweisungen für den Chatbot hinzu.</p>
+            <a href="{{ url_for('admin.chatbot_add') }}" class="btn btn-primary">Erste Anweisung erstellen</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Info Box -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Anweisungstypen</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <h6>📦 product</h6>
+                <p class="text-muted small">Informationen über Produkte, Fliesen, Materialien</p>
+            </div>
+            <div class="col-md-4">
+                <h6>❓ faq</h6>
+                <p class="text-muted small">Häufig gestellte Fragen und Antworten</p>
+            </div>
+            <div class="col-md-4">
+                <h6>🏢 company</h6>
+                <p class="text-muted small">Firmeninfos, Öffnungszeiten, Standort</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h6>📋 policy</h6>
+                <p class="text-muted small">Lieferung, Rückgabe, Garantie</p>
+            </div>
+            <div class="col-md-4">
+                <h6>🤖 instruction</h6>
+                <p class="text-muted small">Verhaltensanweisungen für den Bot</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

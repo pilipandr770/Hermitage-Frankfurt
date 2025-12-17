@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero" style="background-image: url('{{ url_for('static', filename='images/hero/fliesen-hero.jpg') }}');">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1 class="display-4 text-white">{{ page.title if page else 'Ihre Fliesen-Experten in Frankfurt' }}</h1>
+        <p class="lead text-white">{{ page.subtitle if page else 'Exklusive Fliesen für jeden Bereich' }}</p>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% if page and page.content %}
+                    <div class="content-block">
+                        {{ page.content | safe }}
+                    </div>
+                {% else %}
+                    <h2>Vielfältige Fliesen – für Frankfurt und darüber hinaus</h2>
+                    <p class="lead">
+                        Im Gegensatz zu einem Baumarkt finden Sie bei Hermitage Fliesen in Frankfurt 
+                        eine wirklich umfangreiche und exklusive Palette an Fliesen aller Art.
+                    </p>
+                    
+                    <p>
+                        Lassen Sie sich in unserer Fliesenausstellung in eine neue Welt des Ambientes entführen 
+                        und entdecken Sie unter anderem Kunstwerke aus Mosaiken, Fliesen im Metro-Style 
+                        und vollendete Designs von Versace.
+                    </p>
+                    
+                    <h3>Unsere Fliesen-Kategorien</h3>
+                    <ul>
+                        <li>Badezimmerfliesen</li>
+                        <li>Küchenfliesen</li>
+                        <li>Wohnzimmerfliesen</li>
+                        <li>Bodenfliesen</li>
+                        <li>Wandfliesen</li>
+                        <li>Terrassenfliesen</li>
+                        <li>Mosaikfliesen</li>
+                    </ul>
+                {% endif %}
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar-card bg-light p-4 rounded">
+                    <h4>Standorte</h4>
+                    <p>Wir beliefern und beraten Kunden in der gesamten Rhein-Main-Region:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="{{ url_for('main.fliesen_city', city='offenbach') }}" class="text-decoration-none">
+                                <i class="bi bi-geo-alt me-2"></i>Fliesen Offenbach
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{{ url_for('main.fliesen_city', city='hanau') }}" class="text-decoration-none">
+                                <i class="bi bi-geo-alt me-2"></i>Fliesen Hanau
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{{ url_for('main.fliesen_city', city='maintal') }}" class="text-decoration-none">
+                                <i class="bi bi-geo-alt me-2"></i>Fliesen Maintal
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{{ url_for('main.fliesen_city', city='darmstadt') }}" class="text-decoration-none">
+                                <i class="bi bi-geo-alt me-2"></i>Fliesen Darmstadt
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="{{ url_for('main.fliesen_city', city='aschaffenburg') }}" class="text-decoration-none">
+                                <i class="bi bi-geo-alt me-2"></i>Fliesen Aschaffenburg
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card bg-primary text-white p-4 rounded mt-4">
+                    <h4>Beratung gewünscht?</h4>
+                    <p>Rufen Sie uns an oder besuchen Sie unseren Showroom!</p>
+                    <a href="tel:+496990475570" class="btn btn-light w-100">
+                        <i class="bi bi-telephone me-2"></i>{{ company_phone }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fliesen Gallery -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-6">Unsere Fliesen-Kollektion</h2>
+            <p class="text-muted">Entdecken Sie unsere exklusiven Fliesen für jeden Geschmack</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/grossformat.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Großformat Fliesen">
+                    <div class="gallery-overlay">
+                        <h5>Großformat</h5>
+                        <p>Moderne großformatige Fliesen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/naturstein.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Naturstein Optik">
+                    <div class="gallery-overlay">
+                        <h5>Naturstein-Optik</h5>
+                        <p>Elegante Steinoptik-Fliesen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/marmor.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Marmor Fliesen">
+                    <div class="gallery-overlay">
+                        <h5>Marmor</h5>
+                        <p>Luxuriöse Marmor-Fliesen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/mosaic.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Mosaik Fliesen">
+                    <div class="gallery-overlay">
+                        <h5>Mosaik</h5>
+                        <p>Kunstvolle Mosaikfliesen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/wood.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Holzoptik Fliesen">
+                    <div class="gallery-overlay">
+                        <h5>Holzoptik</h5>
+                        <p>Warme Holzoptik-Fliesen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/subway-tiles.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Metro Fliesen">
+                    <div class="gallery-overlay">
+                        <h5>Metro-Style</h5>
+                        <p>Klassische Subway Tiles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/outdoor.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Outdoor Fliesen">
+                    <div class="gallery-overlay">
+                        <h5>Outdoor</h5>
+                        <p>Terrassen- und Außenfliesen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/brick.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Brick Fliesen">
+                    <div class="gallery-overlay">
+                        <h5>Brick</h5>
+                        <p>Moderne Backsteinoptik</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-card">
+                    <img src="{{ url_for('static', filename='images/fliesen/slabs.jpg') }}" 
+                         class="img-fluid rounded shadow" alt="Slabs">
+                    <div class="gallery-overlay">
+                        <h5>Slabs</h5>
+                        <p>XXL Fliesen & Platten</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg">
+                <i class="bi bi-calendar-check me-2"></i>Beratungstermin vereinbaren
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+{% if page and page.faq %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Häufig gestellte Fragen</h2>
+        
+        <div class="accordion" id="faqAccordion">
+            {% for item in page.faq %}
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button {% if not loop.first %}collapsed{% endif %}" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#faq{{ loop.index }}">
+                        {{ item.question }}
+                    </button>
+                </h3>
+                <div id="faq{{ loop.index }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}" 
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {{ item.answer }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA -->
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container">
+        <h2>Besuchen Sie unseren Showroom</h2>
+        <p class="lead">{{ company_address }}</p>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg">Jetzt Termin vereinbaren</a>
+    </div>
+</section>
+{% endblock %}

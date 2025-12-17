@@ -1,0 +1,88 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}Thema zum Content-Plan hinzufügen{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Thema / Titel *</label>
+                        <input type="text" name="title" class="form-control" required
+                               placeholder="z.B. 'Fliesentrends 2025' oder 'Tipps für Badezimmergestaltung'">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Beschreibung / Notizen</label>
+                        <textarea name="description" class="form-control" rows="3"
+                                  placeholder="Zusätzliche Hinweise für die Artikelgenerierung..."></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Kategorie *</label>
+                            <select name="category" class="form-select" required>
+                                <option value="Trends">Trends</option>
+                                <option value="Tipps">Tipps</option>
+                                <option value="Projekte">Projekte</option>
+                                <option value="News">News</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Veröffentlichungsdatum *</label>
+                            <input type="date" name="scheduled_date" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Keywords (kommagetrennt)</label>
+                        <input type="text" name="keywords" class="form-control"
+                               placeholder="fliesen, badezimmer, trends, 2025">
+                        <small class="text-muted">
+                            Diese Keywords werden für SEO-Optimierung und thematische Ausrichtung verwendet.
+                        </small>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-calendar-plus me-1"></i> Zum Plan hinzufügen
+                        </button>
+                        <a href="{{ url_for('admin.content_plan_list') }}" class="btn btn-outline-secondary">Abbrechen</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Themenvorschläge -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-lightbulb me-2"></i>Themenvorschläge</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">• Fliesentrends 2025</li>
+                            <li class="mb-2">• Naturstein vs. Keramik: Vor- und Nachteile</li>
+                            <li class="mb-2">• Große Fliesen für kleine Räume</li>
+                            <li class="mb-2">• Fliesen in Holzoptik: Trends und Tipps</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2">• Badezimmer-Gestaltung: Ideen & Inspiration</li>
+                            <li class="mb-2">• Pflege und Reinigung von Fliesen</li>
+                            <li class="mb-2">• Mosaikfliesen: Comeback eines Klassikers</li>
+                            <li class="mb-2">• Nachhaltige Materialien im Interior Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

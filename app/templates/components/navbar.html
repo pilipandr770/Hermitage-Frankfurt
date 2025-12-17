@@ -1,0 +1,68 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{{ url_for('main.home') }}">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Hermitage Frankfurt" height="50" class="d-inline-block align-top">
+        </a>
+        
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+                </li>
+                
+                <!-- Fliesen Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ url_for('main.fliesen') }}" id="fliesenDropdown" role="button" data-bs-toggle="dropdown">
+                        Fliesen
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen') }}">Übersicht</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='offenbach') }}">Fliesen Offenbach</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='hanau') }}">Fliesen Hanau</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='maintal') }}">Fliesen Maintal</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='darmstadt') }}">Fliesen Darmstadt</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.fliesen_city', city='aschaffenburg') }}">Fliesen Aschaffenburg</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.innenausstattung') }}">Innenausstattung</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.about') }}">Über Uns</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.service') }}">Service</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.trends') }}">Trends</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('blog.index') }}">Blog</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.contact') }}">Kontakt</a>
+                </li>
+            </ul>
+            
+            <!-- Phone CTA -->
+            <a href="tel:+496990475570" class="btn btn-primary ms-lg-3">
+                <i class="bi bi-telephone-fill me-1"></i> Anrufen
+            </a>
+        </div>
+    </div>
+</nav>

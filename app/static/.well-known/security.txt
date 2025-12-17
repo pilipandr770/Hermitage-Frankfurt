@@ -1,0 +1,6 @@
+# Hermitage Frankfurt - Security Policy
+# https://securitytxt.org/
+
+Contact: mailto:info@hermitage-frankfurt.de
+Preferred-Languages: de, en
+Canonical: https://hermitage-frankfurt.de/.well-known/security.txt

@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Interior Design{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-header">
+    <div class="container">
+        <h1>Interior Design</h1>
+        <p class="lead text-white-50">Ganzheitliche Raumgestaltung für Ihr Zuhause</p>
+    </div>
+</section>
+
+<!-- Intro -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <h2>Ihr Raum, Ihre Vision</h2>
+                <p class="lead">Bei Hermitage verstehen wir Interior Design als Gesamtkunstwerk. Fliesen, Naturstein und Möbel müssen harmonisch zusammenwirken.</p>
+                <p>Unsere Interior-Design-Beratung geht weit über die Auswahl von Fliesen hinaus. Wir betrachten Ihren Raum ganzheitlich und entwickeln gemeinsam mit Ihnen ein stimmiges Konzept.</p>
+                <p>Von der ersten Idee bis zur finalen Umsetzung begleiten wir Sie mit Expertise und Leidenschaft.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/interior-design-1.jpg') }}" alt="Interior Design" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Unsere Leistungen</h2>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4><i class="bi bi-palette text-primary me-2"></i>Farbkonzepte</h4>
+                        <p class="text-muted">Harmonische Farbkombinationen für Wände, Böden und Möbel, die zu Ihrem Stil passen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4><i class="bi bi-grid text-primary me-2"></i>Materialberatung</h4>
+                        <p class="text-muted">Auswahl der perfekten Materialien unter Berücksichtigung von Ästhetik und Funktionalität.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4><i class="bi bi-layout-text-window text-primary me-2"></i>Raumplanung</h4>
+                        <p class="text-muted">Optimale Raumaufteilung und Platzierung von Elementen für maximale Wirkung.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4><i class="bi bi-lightbulb text-primary me-2"></i>Lichtkonzepte</h4>
+                        <p class="text-muted">Beleuchtungsplanung, die Ihre Räume optimal in Szene setzt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projekte -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Inspiration</h2>
+            <p>Einblicke in unsere Projekte</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="category-card">
+                    <img src="{{ url_for('static', filename='images/project-bad.jpg') }}" alt="Badezimmer Design">
+                    <div class="overlay">
+                        <h3>Badezimmer</h3>
+                        <p>Wellness-Oasen für Zuhause</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <img src="{{ url_for('static', filename='images/project-kueche.jpg') }}" alt="Küchen Design">
+                    <div class="overlay">
+                        <h3>Küche</h3>
+                        <p>Das Herz des Hauses</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card">
+                    <img src="{{ url_for('static', filename='images/project-wohnen.jpg') }}" alt="Wohnbereich Design">
+                    <div class="overlay">
+                        <h3>Wohnbereich</h3>
+                        <p>Räume zum Leben</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-dark text-white text-center">
+    <div class="container">
+        <h2>Lassen Sie uns Ihre Vision verwirklichen</h2>
+        <p class="lead mb-4">Vereinbaren Sie ein kostenloses Beratungsgespräch mit unseren Interior-Design-Experten.</p>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg">Beratungstermin vereinbaren</a>
+    </div>
+</section>
+{% endblock %}

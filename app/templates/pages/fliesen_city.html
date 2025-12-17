@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/fliesen-' ~ city ~ '.jpg') }}');">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1 class="display-5 text-white">Fliesen {{ city | capitalize }}</h1>
+        <p class="lead text-white">Ihr Fliesenexperte für {{ city | capitalize }} und Umgebung</p>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<nav class="bg-light py-2">
+    <div class="container">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('main.home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('main.fliesen') }}">Fliesen</a></li>
+            <li class="breadcrumb-item active">{{ city | capitalize }}</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% if page and page.content %}
+                    <div class="content-block">
+                        {{ page.content | safe }}
+                    </div>
+                {% else %}
+                    <h2>Fliesen für {{ city | capitalize }} – Qualität aus Frankfurt</h2>
+                    
+                    <p class="lead">
+                        Sie suchen hochwertige Fliesen in {{ city | capitalize }}? Hermitage Frankfurt ist Ihr 
+                        kompetenter Ansprechpartner für exklusive Fliesen im gesamten Rhein-Main-Gebiet.
+                    </p>
+                    
+                    <p>
+                        Unser Showroom in Frankfurt am Main ist nur eine kurze Fahrt von {{ city | capitalize }} 
+                        entfernt. Besuchen Sie uns und lassen Sie sich von unserer vielfältigen Auswahl inspirieren.
+                    </p>
+                    
+                    <h3>Unser Angebot für {{ city | capitalize }}</h3>
+                    <ul>
+                        <li>Persönliche Beratung vor Ort in unserem Showroom</li>
+                        <li>Große Auswahl an Fliesen namhafter Hersteller</li>
+                        <li>Komplettlösungen inkl. Verlegung</li>
+                        <li>Lieferung nach {{ city | capitalize }} und Umgebung</li>
+                    </ul>
+                    
+                    <h3>So erreichen Sie uns von {{ city | capitalize }}</h3>
+                    <p>
+                        Unser Showroom in der Hanauer Landstraße 421 ist bequem mit dem Auto oder 
+                        öffentlichen Verkehrsmitteln erreichbar. Die Fahrt von {{ city | capitalize }} 
+                        dauert in der Regel 15-30 Minuten.
+                    </p>
+                {% endif %}
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar-card bg-light p-4 rounded mb-4">
+                    <h4><i class="bi bi-geo-alt text-primary me-2"></i>Unser Showroom</h4>
+                    <address class="mb-3">
+                        {{ company_address }}
+                    </address>
+                    <p class="mb-0">
+                        <strong>Öffnungszeiten:</strong><br>
+                        Mo-Fr: 10-18 Uhr<br>
+                        Sa: 10-14 Uhr
+                    </p>
+                </div>
+                
+                <div class="sidebar-card bg-primary text-white p-4 rounded">
+                    <h4>Beratungstermin</h4>
+                    <p>Vereinbaren Sie jetzt einen persönlichen Beratungstermin!</p>
+                    <a href="tel:+496990475570" class="btn btn-light w-100 mb-2">
+                        <i class="bi bi-telephone me-2"></i>Anrufen
+                    </a>
+                    <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light w-100">
+                        <i class="bi bi-envelope me-2"></i>Kontaktformular
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Anfahrt von {{ city | capitalize }}</h2>
+        <div class="ratio ratio-21x9">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.123456789!2d8.7123456!3d50.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd0ea8!2sHanauer%20Landstra%C3%9Fe%20421%2C%2060314%20Frankfurt%20am%20Main!5e0!3m2!1sde!2sde!4v1234567890"
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}

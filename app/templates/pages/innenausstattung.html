@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero" style="background-image: url('{{ page.hero_image or url_for('static', filename='images/innenausstattung-hero.jpg') }}');">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1 class="display-4 text-white">{{ page.title if page else 'Innenausstattung Frankfurt' }}</h1>
+        <p class="lead text-white">{{ page.subtitle if page else 'Komplettlösungen für Ihr Zuhause' }}</p>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="py-5">
+    <div class="container">
+        {% if page and page.content %}
+            <div class="content-block">
+                {{ page.content | safe }}
+            </div>
+        {% else %}
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h2>Vielfältige Möglichkeiten der Innenausstattung</h2>
+                    <p class="lead">
+                        Eine Innenausstattung von Hermitage Frankfurt besticht durch ein abgestimmtes 
+                        Konzept für Ihr Zuhause oder Ihre geschäftliche Umgebung.
+                    </p>
+                    <p>
+                        Die Gründungsidee von Hermitage in Frankfurt ist in jedem unserer Raumkonzepte 
+                        noch immer ersichtlich: unser Faible für exklusive Fliesen. Dabei spielt es eine 
+                        untergeordnete Rolle, wo Sie dem Raum einen besonderen Akzent verleihen wollen.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='images/innenausstattung-1.jpg') }}" alt="Innenausstattung" class="img-fluid rounded shadow">
+                </div>
+            </div>
+            
+            <div class="row align-items-center mb-5 flex-lg-row-reverse">
+                <div class="col-lg-6">
+                    <h3>Alle Komponenten aus einer Hand</h3>
+                    <p>
+                        Um Einrichtungsträume wahr werden zu lassen, bedarf es einer professionellen 
+                        Beratung vor Ort, einer vielseitigen Auswahl von Einrichtungselementen höchster 
+                        Qualität und eines umfangreichen Services.
+                    </p>
+                    <p>
+                        In der Hermitage Innenausstattung Frankfurt haben wir für Sie diese solide Basis 
+                        in einem Showroom mit einem engagierten Team geschaffen.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='images/innenausstattung-2.jpg') }}" alt="Showroom" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Unsere Leistungen</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-lightbulb text-primary mb-3" style="font-size: 3rem;"></i>
+                        <h4>Beratung</h4>
+                        <p class="text-muted">Individuelle Konzeptentwicklung für Ihre Räume</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-rulers text-primary mb-3" style="font-size: 3rem;"></i>
+                        <h4>Planung</h4>
+                        <p class="text-muted">Professionelle Raumplanung und Visualisierung</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-tools text-primary mb-3" style="font-size: 3rem;"></i>
+                        <h4>Umsetzung</h4>
+                        <p class="text-muted">Fachgerechte Verlegung und Installation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2>Lassen Sie sich inspirieren</h2>
+        <p class="lead mb-4">Besuchen Sie unseren Showroom und erleben Sie unsere Ausstellung live</p>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-light btn-lg">Termin vereinbaren</a>
+    </div>
+</section>
+{% endblock %}

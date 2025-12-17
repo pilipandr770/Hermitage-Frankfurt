@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category }} - Hermitage Blog{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="page-hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ url_for('static', filename='images/blog-hero.jpg') }}');">
+    <div class="container">
+        <h1 class="display-4 text-white">{{ category }}</h1>
+        <p class="lead text-white">Artikel aus der Kategorie "{{ category }}"</p>
+    </div>
+</section>
+
+<!-- Blog Posts -->
+<section class="py-5">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('blog.index') }}">Blog</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ category }}</li>
+            </ol>
+        </nav>
+        
+        {% if posts %}
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <article class="blog-card h-100">
+                    <div class="blog-card-image">
+                        {% if post.image_url %}
+                        <img src="{{ post.image_url }}" alt="{{ post.title }}" class="img-fluid">
+                        {% else %}
+                        <img src="{{ url_for('static', filename='images/blog/default.jpg') }}" alt="{{ post.title }}" class="img-fluid">
+                        {% endif %}
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta mb-2">
+                            <span class="badge bg-primary">{{ post.category }}</span>
+                            <span class="text-muted ms-2">{{ post.published_at.strftime('%d.%m.%Y') if post.published_at else '' }}</span>
+                        </div>
+                        <h3 class="h5">
+                            <a href="{{ url_for('blog.post', slug=post.slug) }}">{{ post.title }}</a>
+                        </h3>
+                        <p class="text-muted">{{ post.meta_description[:150] }}{% if post.meta_description|length > 150 %}...{% endif %}</p>
+                        <a href="{{ url_for('blog.post', slug=post.slug) }}" class="btn btn-outline-primary btn-sm">
+                            Weiterlesen <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        {% if pagination.pages > 1 %}
+        <nav aria-label="Blog pagination" class="mt-5">
+            <ul class="pagination justify-content-center">
+                {% if pagination.has_prev %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('blog.category', category=category, page=pagination.page-1) }}">
+                        <i class="fas fa-chevron-left"></i> Zurück
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% for p in range(1, pagination.pages + 1) %}
+                <li class="page-item {% if p == pagination.page %}active{% endif %}">
+                    <a class="page-link" href="{{ url_for('blog.category', category=category, page=p) }}">{{ p }}</a>
+                </li>
+                {% endfor %}
+                
+                {% if pagination.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('blog.category', category=category, page=pagination.page+1) }}">
+                        Weiter <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+        
+        {% else %}
+        <!-- No posts message -->
+        <div class="text-center py-5">
+            <div class="empty-state">
+                <i class="fas fa-folder-open fa-4x text-muted mb-4"></i>
+                <h3>Keine Artikel gefunden</h3>
+                <p class="text-muted">In dieser Kategorie sind noch keine Artikel vorhanden.</p>
+                <a href="{{ url_for('blog.index') }}" class="btn btn-primary mt-3">
+                    <i class="fas fa-arrow-left me-2"></i>Zurück zum Blog
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Other Categories -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Weitere Kategorien</h2>
+        <div class="row justify-content-center">
+            {% set categories = ['Trends', 'Tipps', 'Projekte', 'News'] %}
+            {% for cat in categories %}
+            {% if cat != category %}
+            <div class="col-auto mb-3">
+                <a href="{{ url_for('blog.category', category=cat) }}" class="btn btn-outline-primary">
+                    {{ cat }}
+                </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

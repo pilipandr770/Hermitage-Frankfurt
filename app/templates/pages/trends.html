@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Trends{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero" style="background-image: linear-gradient(rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 0.7)), url('{{ url_for('static', filename='images/hero/trends-hero.jpg') }}');">
+    <div class="container">
+        <h1 class="display-4 text-white">Trends 2025</h1>
+        <p class="lead text-white-75">Die neuesten Entwicklungen in Fliesen und Interior Design</p>
+    </div>
+</section>
+
+<!-- Intro -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2>Was ist angesagt?</h2>
+                <p class="lead">Entdecken Sie die aktuellen Trends in der Welt der Fliesen und Innenausstattung. Wir zeigen Ihnen, welche Materialien, Farben und Formate im Trend liegen.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trend 1 -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge bg-primary mb-2">Trend #1</span>
+                <h2>Großformatige Fliesen</h2>
+                <p>Große Fliesen sind nach wie vor stark im Trend. Formate wie 120x120 cm oder sogar 160x320 cm schaffen ein nahtloses, elegantes Erscheinungsbild mit minimalen Fugen.</p>
+                <ul>
+                    <li>Weniger Fugen = einfachere Reinigung</li>
+                    <li>Großzügige, moderne Optik</li>
+                    <li>Ideal für offene Wohnkonzepte</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/trend-grossformat.jpg') }}" alt="Großformatige Fliesen" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trend 2 -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-5 flex-lg-row-reverse">
+            <div class="col-lg-6">
+                <span class="badge bg-primary mb-2">Trend #2</span>
+                <h2>Naturstein-Optik</h2>
+                <p>Keramikfliesen in authentischer Naturstein-Optik vereinen das Beste aus beiden Welten: Die natürliche Schönheit von Marmor, Travertin oder Schiefer mit der Pflegeleichtigkeit von Keramik.</p>
+                <ul>
+                    <li>Realistische Textur und Maserung</li>
+                    <li>Pflegeleicht und langlebig</li>
+                    <li>Kostengünstiger als echte Natursteine</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/trend-naturstein.jpg') }}" alt="Naturstein-Optik" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trend 3 -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge bg-primary mb-2">Trend #3</span>
+                <h2>Erdtöne & Warme Farben</h2>
+                <p>Natürliche, warme Farbtöne dominieren 2025. Terrakotta, Sand, Beige und warme Grautöne schaffen eine gemütliche Atmosphäre und lassen sich vielseitig kombinieren.</p>
+                <ul>
+                    <li>Zeitlose Eleganz</li>
+                    <li>Harmoniert mit verschiedenen Einrichtungsstilen</li>
+                    <li>Schafft Wärme und Geborgenheit</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/trend-erdtoene.jpg') }}" alt="Erdtöne" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trend 4 -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-5 flex-lg-row-reverse">
+            <div class="col-lg-6">
+                <span class="badge bg-primary mb-2">Trend #4</span>
+                <h2>3D-Strukturen</h2>
+                <p>Dreidimensionale Oberflächenstrukturen bringen Leben und Tiefe in jeden Raum. Von dezenten Wellenmustern bis zu auffälligen geometrischen Designs.</p>
+                <ul>
+                    <li>Einzigartige Licht- und Schattenspiele</li>
+                    <li>Statement-Wände als Blickfang</li>
+                    <li>Haptisches Erlebnis</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/trend-3d.jpg') }}" alt="3D-Strukturen" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-dark text-white text-center">
+    <div class="container">
+        <h2>Die Trends live erleben</h2>
+        <p class="lead mb-4">Besuchen Sie unseren Showroom und lassen Sie sich von den neuesten Trends inspirieren.</p>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg">Termin vereinbaren</a>
+    </div>
+</section>
+{% endblock %}

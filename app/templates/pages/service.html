@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Service{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero" style="background-image: linear-gradient(rgba(15, 15, 26, 0.7), rgba(15, 15, 26, 0.7)), url('{{ url_for('static', filename='images/hero/service-hero.jpg') }}');">
+    <div class="container">
+        <h1 class="display-4 text-white">Unser Service</h1>
+        <p class="lead text-white-75">Von der Beratung bis zur Umsetzung – wir sind für Sie da</p>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto mb-3" style="width:80px; height:80px; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-chat-dots text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4>Persönliche Beratung</h4>
+                        <p class="text-muted">Kostenlose Beratung durch unsere Experten im Showroom oder bei Ihnen vor Ort.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto mb-3" style="width:80px; height:80px; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-laptop text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4>3D-Visualisierung</h4>
+                        <p class="text-muted">Sehen Sie Ihr Projekt vorab in fotorealistischer 3D-Darstellung.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto mb-3" style="width:80px; height:80px; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-box-seam text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4>Musterversand</h4>
+                        <p class="text-muted">Lassen Sie sich Ihre Wunschfliesen als Muster nach Hause schicken.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto mb-3" style="width:80px; height:80px; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-truck text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4>Lieferung</h4>
+                        <p class="text-muted">Deutschlandweite Lieferung direkt zu Ihnen nach Hause oder auf die Baustelle.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto mb-3" style="width:80px; height:80px; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-tools text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4>Verlegung</h4>
+                        <p class="text-muted">Professionelle Verlegung durch unsere Partner-Handwerker.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto mb-3" style="width:80px; height:80px; background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-shield-check text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h4>Garantie</h4>
+                        <p class="text-muted">Umfassende Garantie auf alle Produkte und Dienstleistungen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>So arbeiten wir</h2>
+            <p>Ihr Weg zum Traumraum in 4 Schritten</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-3 text-center">
+                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">1</div>
+                <h5>Beratung</h5>
+                <p class="text-muted small">Persönliches Gespräch über Ihre Wünsche und Anforderungen</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">2</div>
+                <h5>Planung</h5>
+                <p class="text-muted small">Auswahl der Materialien und 3D-Visualisierung</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">3</div>
+                <h5>Lieferung</h5>
+                <p class="text-muted small">Termingerechte Lieferung Ihrer bestellten Produkte</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; font-size: 1.5rem; font-weight: bold;">4</div>
+                <h5>Umsetzung</h5>
+                <p class="text-muted small">Professionelle Verlegung durch Experten</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center">
+    <div class="container">
+        <h2>Bereit für Ihr Projekt?</h2>
+        <p class="lead mb-4">Kontaktieren Sie uns für eine kostenlose Beratung.</p>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg me-2">Kontakt aufnehmen</a>
+        <a href="tel:+496990475570" class="btn btn-outline-primary btn-lg">069 90475570</a>
+    </div>
+</section>
+{% endblock %}

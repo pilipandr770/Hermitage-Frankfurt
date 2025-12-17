@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Magazin | Hermitage Frankfurt{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero" style="background-image: url('{{ url_for('static', filename='images/hero/magazine-hero.jpg') }}');">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1 class="display-4 text-white">Hermitage Magazin</h1>
+        <p class="lead text-white">Inspiration, Tipps und Trends aus der Welt des Interior Designs</p>
+    </div>
+</section>
+
+<!-- Magazin Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Feature Article -->
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="{{ url_for('static', filename='images/trend-grossformat.jpg') }}" 
+                                 class="img-fluid h-100 object-fit-cover" alt="Großformat Fliesen">
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5">
+                                <span class="badge bg-primary mb-3">Trend 2025</span>
+                                <h2 class="card-title">Großformat-Fliesen: Der anhaltende Trend</h2>
+                                <p class="card-text text-muted">
+                                    Großformatige Fliesen sind weiterhin im Trend. Sie schaffen moderne, 
+                                    weitläufige Raumkonzepte mit minimalen Fugen und maximaler Eleganz. 
+                                    Entdecken Sie die neuesten Kollektionen in unserem Showroom.
+                                </p>
+                                <a href="{{ url_for('main.fliesen') }}" class="btn btn-outline-primary">
+                                    Mehr erfahren <i class="bi bi-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Magazine Articles Grid -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/trend-naturstein.jpg') }}" 
+                         class="card-img-top" alt="Naturstein Optik">
+                    <div class="card-body">
+                        <span class="badge bg-secondary mb-2">Design</span>
+                        <h5 class="card-title">Naturstein-Optik: Zeitlose Eleganz</h5>
+                        <p class="card-text text-muted">
+                            Fliesen in Naturstein-Optik vereinen die Schönheit der Natur mit 
+                            der Pflegeleichtigkeit moderner Keramik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/trend-erdtoene.jpg') }}" 
+                         class="card-img-top" alt="Erdtöne">
+                    <div class="card-body">
+                        <span class="badge bg-secondary mb-2">Farben</span>
+                        <h5 class="card-title">Erdtöne und warme Farben</h5>
+                        <p class="card-text text-muted">
+                            Warme Erdtöne schaffen eine gemütliche Atmosphäre und sind 
+                            perfekt kombinierbar mit verschiedenen Einrichtungsstilen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/trend-3d.jpg') }}" 
+                         class="card-img-top" alt="3D Strukturen">
+                    <div class="card-body">
+                        <span class="badge bg-secondary mb-2">Innovation</span>
+                        <h5 class="card-title">3D-Strukturen und Texturen</h5>
+                        <p class="card-text text-muted">
+                            Dreidimensionale Oberflächen setzen besondere Akzente und 
+                            bringen Leben in jede Wand.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interior Design Section -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/categories/innenausstattung.jpg') }}" 
+                         class="card-img-top" alt="Innenausstattung">
+                    <div class="card-body">
+                        <span class="badge bg-info mb-2">Innenausstattung</span>
+                        <h5 class="card-title">Luxuriöse Badezimmer-Konzepte</h5>
+                        <p class="card-text text-muted">
+                            Von der freistehenden Badewanne bis zur begehbaren Dusche - 
+                            entdecken Sie unsere Premium-Ausstattung.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/showroom.jpg') }}" 
+                         class="card-img-top" alt="Showroom">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Showroom</span>
+                        <h5 class="card-title">Besuchen Sie unseren Showroom</h5>
+                        <p class="card-text text-muted">
+                            Erleben Sie Fliesen und Innenausstattung live auf über 500m² 
+                            Ausstellungsfläche in Frankfurt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm bg-primary text-white">
+                    <div class="card-body d-flex flex-column justify-content-center text-center p-4">
+                        <i class="bi bi-envelope-heart display-4 mb-3"></i>
+                        <h5 class="card-title text-white">Newsletter abonnieren</h5>
+                        <p class="card-text opacity-75">
+                            Bleiben Sie informiert über neue Trends und exklusive Angebote.
+                        </p>
+                        <a href="{{ url_for('main.contact') }}" class="btn btn-light mt-2">
+                            Jetzt anmelden
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="text-center mt-5 pt-4">
+            <h3>Lassen Sie sich inspirieren</h3>
+            <p class="text-muted mb-4">Vereinbaren Sie einen Beratungstermin in unserem Showroom</p>
+            <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg">
+                <i class="bi bi-calendar-check me-2"></i>Termin vereinbaren
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

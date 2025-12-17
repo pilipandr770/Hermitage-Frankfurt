@@ -1,0 +1,40 @@
+# Render.com Build & Deploy Configuration
+# https://render.com/docs/blueprint-spec
+# 
+# ВАЖНО: Перед деплоем нужно создать схему в PostgreSQL!
+# Запустите: python scripts/init_postgres_schema.py
+
+services:
+  - type: web
+    name: hermitage-frankfurt
+    runtime: python
+    region: frankfurt
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app('production')" --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.6
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false  # Set manually: postgresql://ittoken_db_user:...
+      - key: DATABASE_SCHEMA
+        value: hermitage
+      - key: OPENAI_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: PEXELS_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: NEWS_API_KEY
+        sync: false  # Set manually in Render dashboard
+      - key: CHATBOT_MODEL
+        value: gpt-4o-mini
+      - key: BLOG_MODEL
+        value: gpt-4o-mini
+      - key: MAX_BLOG_ARTICLES
+        value: "30"
+    healthCheckPath: /
+    autoDeploy: true

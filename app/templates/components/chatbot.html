@@ -1,0 +1,96 @@
+<!-- Chatbot Widget -->
+<div id="chatbot-widget" class="chatbot-widget">
+    <!-- Toggle Button -->
+    <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Chat öffnen">
+        <i class="bi bi-chat-dots-fill" id="chat-icon-open"></i>
+        <i class="bi bi-x-lg d-none" id="chat-icon-close"></i>
+    </button>
+    
+    <!-- Chat Window -->
+    <div id="chatbot-window" class="chatbot-window d-none">
+        <!-- Header -->
+        <div class="chatbot-header">
+            <div class="d-flex align-items-center">
+                <div class="chatbot-avatar me-2">
+                    <img src="{{ url_for('static', filename='images/chatbot-avatar.png') }}" alt="Hermitage Assistent" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23b8860b%22/><text x=%2250%22 y=%2265%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2240%22>H</text></svg>'">
+                </div>
+                <div>
+                    <h6 class="mb-0 text-white">Hermitage Assistent</h6>
+                    <small class="text-white-50">Wir helfen Ihnen gerne</small>
+                </div>
+            </div>
+            <button id="chatbot-minimize" class="btn btn-link text-white p-0">
+                <i class="bi bi-dash-lg"></i>
+            </button>
+        </div>
+        
+        <!-- Messages -->
+        <div id="chatbot-messages" class="chatbot-messages">
+            <!-- Welcome Message -->
+            <div class="chat-message assistant">
+                <div class="message-content">
+                    Herzlich willkommen bei Hermitage Frankfurt! 👋
+                    <br><br>
+                    Ich bin Ihr virtueller Assistent und helfe Ihnen gerne bei Fragen zu Fliesen, Innenausstattung oder unserem Showroom.
+                    <br><br>
+                    Wie kann ich Ihnen helfen?
+                </div>
+            </div>
+            
+            <!-- Quick Replies -->
+            <div class="quick-replies">
+                <button class="quick-reply" data-message="Welche Fliesen haben Sie im Sortiment?">
+                    <i class="bi bi-grid-3x3-gap me-1"></i> Sortiment
+                </button>
+                <button class="quick-reply" data-message="Wie sind Ihre Öffnungszeiten?">
+                    <i class="bi bi-clock me-1"></i> Öffnungszeiten
+                </button>
+                <button class="quick-reply" data-message="Ich möchte einen Beratungstermin vereinbaren">
+                    <i class="bi bi-calendar-check me-1"></i> Termin
+                </button>
+            </div>
+        </div>
+        
+        <!-- Input -->
+        <div class="chatbot-input">
+            <form id="chatbot-form">
+                <div class="input-group">
+                    <input type="text" id="chatbot-input-field" class="form-control" placeholder="Ihre Nachricht..." autocomplete="off">
+                    <button type="submit" class="btn btn-primary" title="Senden">
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Lead Form Modal -->
+<div class="modal fade" id="leadModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Kontakt hinterlassen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Hinterlassen Sie Ihre Kontaktdaten und wir melden uns bei Ihnen!</p>
+                <form id="lead-form">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">E-Mail</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefon (optional)</label>
+                        <input type="tel" class="form-control" name="phone">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Absenden</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

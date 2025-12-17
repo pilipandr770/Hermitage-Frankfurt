@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin{% endblock %} | Hermitage Frankfurt</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sidebar-width: 250px;
+        }
+        body {
+            min-height: 100vh;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: #212529;
+            padding-top: 1rem;
+            overflow-y: auto;
+        }
+        .sidebar .nav-link {
+            color: rgba(255,255,255,0.7);
+            padding: 0.75rem 1rem;
+            border-radius: 0;
+        }
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+        .sidebar .nav-link i {
+            margin-right: 0.5rem;
+        }
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+        .top-bar {
+            background: #fff;
+            border-bottom: 1px solid #dee2e6;
+            padding: 1rem;
+        }
+        .content-wrapper {
+            padding: 2rem;
+        }
+        .stat-card {
+            border-left: 4px solid;
+        }
+        .stat-card.primary { border-left-color: #0d6efd; }
+        .stat-card.success { border-left-color: #198754; }
+        .stat-card.warning { border-left-color: #ffc107; }
+        .stat-card.info { border-left-color: #0dcaf0; }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="px-3 mb-4">
+            <h5 class="text-white">Hermitage Admin</h5>
+        </div>
+        
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {% if request.endpoint == 'admin.dashboard' %}active{% endif %}" 
+                   href="{{ url_for('admin.dashboard') }}">
+                    <i class="bi bi-speedometer2"></i> Dashboard
+                </a>
+            </li>
+            
+            <li class="nav-item mt-3">
+                <span class="text-muted px-3 small text-uppercase">Chatbot</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if 'chatbot' in request.endpoint %}active{% endif %}" 
+                   href="{{ url_for('admin.chatbot_list') }}">
+                    <i class="bi bi-robot"></i> Anweisungen
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.endpoint == 'admin.leads_list' %}active{% endif %}" 
+                   href="{{ url_for('admin.leads_list') }}">
+                    <i class="bi bi-people"></i> Leads
+                </a>
+            </li>
+            
+            <li class="nav-item mt-3">
+                <span class="text-muted px-3 small text-uppercase">Blog</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if 'trends' in request.endpoint %}active{% endif %}" 
+                   href="{{ url_for('admin.trends_list') }}">
+                    <i class="bi bi-graph-up"></i> Trends & AI
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if 'content_plan' in request.endpoint %}active{% endif %}" 
+                   href="{{ url_for('admin.content_plan_list') }}">
+                    <i class="bi bi-calendar-week"></i> Content-Plan
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.endpoint == 'admin.blog_list' %}active{% endif %}" 
+                   href="{{ url_for('admin.blog_list') }}">
+                    <i class="bi bi-journal-text"></i> Artikel
+                </a>
+            </li>
+        </ul>
+        
+        <div class="mt-auto p-3 border-top border-secondary">
+            <a href="{{ url_for('main.home') }}" class="nav-link text-muted" target="_blank">
+                <i class="bi bi-box-arrow-up-right"></i> Website ansehen
+            </a>
+            <a href="{{ url_for('admin.logout') }}" class="nav-link text-muted">
+                <i class="bi bi-box-arrow-left"></i> Abmelden
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="top-bar d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">{% block page_title %}Dashboard{% endblock %}</h4>
+            <span class="text-muted">Willkommen, {{ current_user.name or current_user.username }}</span>
+        </div>
+        
+        <div class="content-wrapper">
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

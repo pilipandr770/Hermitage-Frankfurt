@@ -1,0 +1,21 @@
+# Hermitage Frankfurt - humans.txt
+# humanstxt.org
+
+/* TEAM */
+Company: Hermitage Home & Design GmbH & Co KG
+Founder: Leonid Parhomowski
+Location: Frankfurt am Main, Germany
+Since: 1998
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript ES6
+Framework: Flask (Python)
+Frontend: Bootstrap 5
+Icons: Bootstrap Icons
+Fonts: Playfair Display, Open Sans
+AI Assistant: OpenAI GPT-4
+
+/* THANKS */
+Bootstrap Team
+OpenAI
+Flask Community

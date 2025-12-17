@@ -1,0 +1,85 @@
+<!-- Footer -->
+<footer class="footer pt-5 pb-3 mt-5">
+    <div class="container">
+        <div class="row">
+            <!-- About -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5 class="text-uppercase mb-4 text-white">Hermitage Frankfurt</h5>
+                <p class="footer-text">
+                    Ihr Experte für exklusive Fliesen und Innenausstattung seit 1998. 
+                    Besuchen Sie unseren Showroom in der Hanauer Landstraße.
+                </p>
+                <div class="social-links mt-3">
+                    <a href="https://www.facebook.com/HermitageFrankfurt" target="_blank" rel="noopener" class="me-3"><i class="bi bi-facebook fs-5"></i></a>
+                    <a href="https://www.instagram.com/hermitage_frankfurt/" target="_blank" rel="noopener" class="me-3"><i class="bi bi-instagram fs-5"></i></a>
+                    <a href="https://x.com/HERMITAGE_FFM" target="_blank" rel="noopener" class="me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="text-uppercase mb-4 text-white">Navigation</h5>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-2"><a href="{{ url_for('main.home') }}">Home</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.fliesen') }}">Fliesen</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.innenausstattung') }}">Innenausstattung</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.about') }}">Über Uns</a></li>
+                    <li class="mb-2"><a href="{{ url_for('blog.index') }}">Blog</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.contact') }}">Kontakt</a></li>
+                </ul>
+            </div>
+            
+            <!-- Services -->
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="text-uppercase mb-4 text-white">Services</h5>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-2"><a href="{{ url_for('main.service') }}">Beratung</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.service') }}">Planung</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.service') }}">Verlegung</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.trends') }}">Trends</a></li>
+                    <li class="mb-2"><a href="{{ url_for('main.magazine') }}">Magazine</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5 class="text-uppercase mb-4 text-white">Kontakt</h5>
+                <ul class="list-unstyled footer-contact">
+                    <li class="mb-3">
+                        <i class="bi bi-geo-alt-fill me-2 text-accent"></i>
+                        {{ company_address }}
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-telephone-fill me-2 text-accent"></i>
+                        <a href="tel:+49{{ company_phone | replace(' ', '') }}">{{ company_phone }}</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-envelope-fill me-2 text-accent"></i>
+                        <a href="mailto:{{ company_email }}">{{ company_email }}</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-clock-fill me-2 text-accent"></i>
+                        Mo-Fr: 10-18 Uhr | Sa: 10-14 Uhr
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="footer-divider my-4">
+        
+        <!-- Bottom -->
+        <div class="row align-items-center footer-bottom">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0 small">
+                    &copy; {{ current_year }} {{ company_name }}. Alle Rechte vorbehalten.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <a href="{{ url_for('main.impressum') }}" class="footer-legal-link small me-3">Impressum</a>
+                <a href="{{ url_for('main.agb') }}" class="footer-legal-link small me-3">AGB</a>
+                <a href="{{ url_for('main.datenschutz') }}" class="footer-legal-link small me-3">Datenschutz</a>
+                <a href="{{ url_for('main.cookies') }}" class="footer-legal-link small">Cookie-Richtlinie</a>
+            </div>
+        </div>
+    </div>
+</footer>

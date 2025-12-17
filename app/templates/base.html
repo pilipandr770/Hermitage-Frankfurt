@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO -->
+    <title>{% block title %}{{ page.get_seo_title() if page else 'Hermitage Frankfurt - Fliesen & Innenausstattung' }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ page.get_seo_description() if page else 'Ihr Experte für exklusive Fliesen und Innenausstattung in Frankfurt am Main seit 1998.' }}{% endblock %}">
+    <meta name="keywords" content="Fliesen Frankfurt, Naturstein, Badezimmer Design, Interior Design, Marmor, Feinsteinzeug, Hermitage Frankfurt">
+    <meta name="author" content="Hermitage Home & Design GmbH & Co KG">
+    <link rel="canonical" href="{{ request.url }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hermitage Frankfurt">
+    <meta property="og:title" content="{% block og_title %}{{ page.title if page else 'Hermitage Frankfurt' }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ page.get_seo_description() if page else 'Premium Fliesen & Interior Design seit 1998' }}{% endblock %}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{% block og_image %}{{ url_for('static', filename='images/og-image.jpg', _external=True) }}{% endblock %}">
+    <meta property="og:locale" content="de_DE">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ self.og_title() }}">
+    <meta name="twitter:description" content="{{ self.og_description() }}">
+    <meta name="twitter:image" content="{{ self.og_image() }}">
+    
+    <!-- Schema.org JSON-LD для LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HomeGoodsStore",
+        "@id": "https://hermitage-frankfurt.de/#business",
+        "name": "Hermitage Frankfurt",
+        "alternateName": "Hermitage Home & Design GmbH & Co KG",
+        "description": "Premium Fliesen & Interior Design Showroom in Frankfurt am Main seit 1998. Über 1.000 m² Ausstellungsfläche für Fliesen, Naturstein, Badmöbel und Interior Design.",
+        "url": "https://hermitage-frankfurt.de",
+        "telephone": "+49-69-90475570",
+        "email": "info@hermitage-frankfurt.de",
+        "foundingDate": "1998",
+        "founder": {
+            "@type": "Person",
+            "name": "Leonid Parhomowski"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Hanauer Landstraße 421",
+            "addressLocality": "Frankfurt am Main",
+            "postalCode": "60314",
+            "addressRegion": "Hessen",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.1155",
+            "longitude": "8.7372"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "10:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "10:00",
+                "closes": "14:00"
+            }
+        ],
+        "priceRange": "€€€",
+        "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Bank Transfer"],
+        "currenciesAccepted": "EUR",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "50.1155",
+                "longitude": "8.7372"
+            },
+            "geoRadius": "50000"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Fliesen & Interior Design",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Großformat Fliesen"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Naturstein"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Feinsteinzeug"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Mosaik Fliesen"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Badmöbel"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Türen"}}
+            ]
+        },
+        "sameAs": [
+            "https://www.instagram.com/hermitage_frankfurt/",
+            "https://www.facebook.com/HermitageFrankfurt/"
+        ],
+        "image": "https://hermitage-frankfurt.de/static/images/showroom.jpg",
+        "logo": "https://hermitage-frankfurt.de/static/images/logo.png"
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Cookie Banner -->
+    {% include 'components/cookie_banner.html' %}
+    
+    <!-- Navigation -->
+    {% include 'components/navbar.html' %}
+    
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mt-3">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    {% include 'components/footer.html' %}
+    
+    <!-- Chatbot Widget -->
+    {% include 'components/chatbot.html' %}
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

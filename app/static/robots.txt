@@ -1,0 +1,34 @@
+# Hermitage Frankfurt - Robots.txt
+# Premium Fliesen & Interior Design seit 1998
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://hermitage-frankfurt.de/sitemap.xml
+
+# AI Crawlers welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Admin-Bereich ausschließen
+Disallow: /admin/
+Disallow: /api/
+
+# Static files erlauben
+Allow: /static/

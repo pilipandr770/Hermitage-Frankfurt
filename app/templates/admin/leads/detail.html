@@ -1,0 +1,74 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}Chat-Verlauf{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">Kontaktdaten</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Name:</th>
+                        <td>{{ session.user_name or '-' }}</td>
+                    </tr>
+                    <tr>
+                        <th>E-Mail:</th>
+                        <td>
+                            {% if session.user_email %}
+                            <a href="mailto:{{ session.user_email }}">{{ session.user_email }}</a>
+                            {% else %}-{% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Telefon:</th>
+                        <td>
+                            {% if session.user_phone %}
+                            <a href="tel:{{ session.user_phone }}">{{ session.user_phone }}</a>
+                            {% else %}-{% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Erstellt:</th>
+                        <td>{{ session.created_at.strftime('%d.%m.%Y %H:%M') }}</td>
+                    </tr>
+                </table>
+                
+                {% if session.user_email %}
+                <a href="mailto:{{ session.user_email }}?subject=Ihre Anfrage bei Hermitage" class="btn btn-primary btn-sm w-100">
+                    <i class="bi bi-envelope"></i> Antworten
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        
+        <a href="{{ url_for('admin.leads_list') }}" class="btn btn-outline-secondary mt-3">
+            <i class="bi bi-arrow-left"></i> Zurück zur Liste
+        </a>
+    </div>
+    
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">Chat-Verlauf</h6>
+            </div>
+            <div class="card-body" style="max-height: 600px; overflow-y: auto;">
+                {% for msg in session.messages %}
+                <div class="mb-3 {% if msg.role == 'user' %}text-end{% endif %}">
+                    <div class="d-inline-block p-3 rounded {% if msg.role == 'user' %}bg-primary text-white{% else %}bg-light{% endif %}"
+                         style="max-width: 80%;">
+                        {{ msg.content }}
+                    </div>
+                    <div class="small text-muted mt-1">
+                        {{ msg.created_at.strftime('%H:%M') }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

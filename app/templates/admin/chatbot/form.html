@@ -1,0 +1,90 @@
+{% extends "admin/base.html" %}
+
+{% block page_title %}{{ 'Anweisung bearbeiten' if instruction else 'Neue Anweisung' }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Titel *</label>
+                        <input type="text" name="title" class="form-control" required
+                               value="{{ instruction.title if instruction else '' }}"
+                               placeholder="z.B. 'Öffnungszeiten' oder 'Marmorfliesen Info'">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Typ *</label>
+                        <select name="instruction_type" class="form-select" required>
+                            <option value="product" {{ 'selected' if instruction and instruction.instruction_type == 'product' else '' }}>
+                                📦 Produkt - Infos über Produkte
+                            </option>
+                            <option value="faq" {{ 'selected' if instruction and instruction.instruction_type == 'faq' else '' }}>
+                                ❓ FAQ - Häufige Fragen
+                            </option>
+                            <option value="company" {{ 'selected' if instruction and instruction.instruction_type == 'company' else '' }}>
+                                🏢 Firma - Unternehmensinfos
+                            </option>
+                            <option value="policy" {{ 'selected' if instruction and instruction.instruction_type == 'policy' else '' }}>
+                                📋 Policy - Richtlinien
+                            </option>
+                            <option value="instruction" {{ 'selected' if instruction and instruction.instruction_type == 'instruction' else '' }}>
+                                🤖 Anweisung - Verhalten des Bots
+                            </option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Inhalt *</label>
+                        <textarea name="content" class="form-control" rows="8" required
+                                  placeholder="Der Inhalt, den der Chatbot lernen soll...">{{ instruction.content if instruction else '' }}</textarea>
+                        <small class="text-muted">
+                            Schreiben Sie klar und präzise. Der Chatbot nutzt diesen Text als Wissensbasis.
+                        </small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Keywords (kommagetrennt)</label>
+                        <input type="text" name="keywords" class="form-control"
+                               value="{{ instruction.keywords | join(', ') if instruction and instruction.keywords else '' }}"
+                               placeholder="marmor, naturstein, badezimmer">
+                        <small class="text-muted">
+                            Schlüsselwörter helfen dem Bot, diese Information bei passenden Fragen zu finden.
+                        </small>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Priorität</label>
+                            <input type="number" name="priority" class="form-control"
+                                   value="{{ instruction.priority if instruction else 0 }}" min="0" max="100">
+                            <small class="text-muted">Höhere Priorität = wichtiger (0-100)</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Status</label>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" name="is_active" id="is_active"
+                                       {{ 'checked' if not instruction or instruction.is_active else '' }}>
+                                <label class="form-check-label" for="is_active">
+                                    Aktiv (wird vom Chatbot verwendet)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-lg me-1"></i> Speichern
+                        </button>
+                        <a href="{{ url_for('admin.chatbot_list') }}" class="btn btn-outline-secondary">Abbrechen</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
