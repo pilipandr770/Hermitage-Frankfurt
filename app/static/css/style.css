@@ -149,6 +149,8 @@ a:hover {
     align-items: center;
     justify-content: center;
     position: relative;
+    will-change: transform;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .hero-overlay-gradient {
@@ -1205,5 +1207,27 @@ a, button, input, select, textarea {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+    .hero-fullscreen,
+    .hero-slide-fullscreen {
+        height: 70vh;
+        min-height: 450px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content .display-6 {
+        font-size: 1.5rem;
+    }
+    
+    /* Optimize animations on mobile */
+    .carousel-fade .carousel-item {
+        transition-duration: 0.3s;
     }
 }
