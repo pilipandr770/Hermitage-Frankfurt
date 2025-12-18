@@ -77,6 +77,12 @@ def magazine():
     return render_template('pages/magazine.html', page=page)
 
 
+@main_bp.route('/faq/')
+def faq():
+    """FAQ страница с Schema.org FAQPage."""
+    return render_template('pages/faq.html')
+
+
 @main_bp.route('/kontakt/', methods=['GET', 'POST'])
 def contact():
     """Страница контактов с формой."""
@@ -142,6 +148,16 @@ def ai_plugin():
         current_app.static_folder + '/.well-known', 
         'ai-plugin.json', 
         mimetype='application/json'
+    )
+
+
+@main_bp.route('/.well-known/ai.txt')
+def ai_txt():
+    """AI.txt для дополнительной AI-оптимизации."""
+    return send_from_directory(
+        current_app.static_folder + '/.well-known', 
+        'ai.txt', 
+        mimetype='text/plain'
     )
 
 
