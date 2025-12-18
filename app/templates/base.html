@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     
     {# SEO Meta Tags - Priority: page-specific > block > fallback #}
     {% set default_title = "Hermitage Frankfurt – Fliesen & Innenausstattung | Frankfurt am Main" %}
@@ -43,6 +52,9 @@
     {% block preload %}
     <link rel="preload" href="{{ url_for('static', filename='images/hero/slide-1.jpg') }}" as="image" fetchpriority="high">
     {% endblock %}
+    
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>{% include 'critical_css.html' %}</style>
     
     <!-- Schema.org JSON-LD для LocalBusiness -->
     <script type="application/ld+json">
@@ -130,25 +142,26 @@
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
     
-    <!-- Critical CSS: Bootstrap (preload for performance) -->
+    <!-- Optimized CSS Loading -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>
     
-    <!-- Deferred: Bootstrap Icons -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"></noscript>
     
-    <!-- Google Fonts with display=swap for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts optimized -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Custom CSS -->
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <!-- Custom CSS with media query optimization -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="all">
     
     {% block extra_css %}{% endblock %}
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Zum Hauptinhalt springen</a>
+    
     <!-- Cookie Banner -->
     {% include 'components/cookie_banner.html' %}
     
@@ -170,7 +183,7 @@
     {% endwith %}
     
     <!-- Main Content -->
-    <main>
+    <main id="main-content" role="main">
         {% block content %}{% endblock %}
     </main>
     
