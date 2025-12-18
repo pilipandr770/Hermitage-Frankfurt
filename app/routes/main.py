@@ -81,6 +81,18 @@ def verlegung():
     return render_template('pages/verlegung.html')
 
 
+@main_bp.route('/badsanierung-leitfaden/')
+def badsanierung_leitfaden():
+    """Badsanierung Leitfaden 2025."""
+    return render_template('pages/badsanierung-leitfaden.html')
+
+
+@main_bp.route('/fliesenarten-badezimmer/')
+def fliesenarten_badezimmer():
+    """Fliesenarten für Badezimmer Ratgeber."""
+    return render_template('pages/fliesenarten-badezimmer.html')
+
+
 @main_bp.route('/trends/')
 def trends():
     """Страница Trends."""
