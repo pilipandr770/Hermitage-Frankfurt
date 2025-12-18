@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Fliesen Planung Frankfurt – 3D-Visualisierung & Raumplanung{% endblock %}
+{% block description %}Professionelle Fliesen Planung Frankfurt ✓ 3D-Visualisierung ✓ Raumplanung ✓ Kostenvoranschlag ✓ Individuelle Konzepte ✓ Termin: 069-90475570{% endblock %}
+{% block keywords %}Fliesen Planung Frankfurt, 3D-Visualisierung, Raumplanung, Kostenvoranschlag, Fliesenplanung Rhein-Main{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero" style="background-image: url('{{ url_for('static', filename='images/hero/planung-hero.jpg') }}');" aria-labelledby="page-title">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1 id="page-title" class="display-4 text-white">Fliesen Planung Frankfurt – Ihr Projekt in besten Händen</h1>
+        <p class="lead text-white">Professionelle Planung mit 3D-Visualisierung und detaillierten Kostenvoranschlägen</p>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="py-5" aria-labelledby="planung-heading">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h2 id="planung-heading">Warum professionelle Fliesen Planung Frankfurt entscheidend ist</h2>
+                <p class="lead">Eine sorgfältige Planung ist der Grundstein für jedes erfolgreiche Fliesenprojekt. Mit unserer Expertise in Frankfurt vermeiden Sie Fehler und sparen Zeit und Geld.</p>
+                <p>Wir bieten umfassende Planungsleistungen – von der ersten Skizze über 3D-Visualisierungen bis hin zu detaillierten Kostenvoranschlägen. Jedes Projekt wird individuell auf Ihre Bedürfnisse und Ihren Raum zugeschnitten.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/planung-1.jpg') }}"
+                     alt="Fliesen Planung Frankfurt – 3D-Visualisierung von Badezimmern"
+                     title="3D-Visualisierung Fliesen"
+                     class="img-fluid rounded shadow"
+                     width="600" height="400"
+                     loading="lazy">
+            </div>
+        </div>
+
+        <!-- Planungsleistungen -->
+        <div class="planungsleistungen mb-5">
+            <h3 class="text-center mb-4">Unsere Planungsleistungen im Detail</h3>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="service-detail-card h-100">
+                        <div class="card-body">
+                            <h4 class="h5 mb-3">3D-Visualisierung</h4>
+                            <p class="text-muted mb-3">Sehen Sie Ihr zukünftiges Bad oder Ihre Küche bereits vor der Umsetzung in fotorealistischer Qualität.</p>
+                            <ul class="list-unstyled small">
+                                <li>• Fotorealistische Darstellung</li>
+                                <li>• Verschiedene Perspektiven</li>
+                                <li>• Material- und Lichtsimulation</li>
+                                <li>• Interaktive Präsentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="service-detail-card h-100">
+                        <div class="card-body">
+                            <h4 class="h5 mb-3">Technische Planung</h4>
+                            <p class="text-muted mb-3">Detaillierte technische Zeichnungen und Verlegepläne für eine perfekte Umsetzung.</p>
+                            <ul class="list-unstyled small">
+                                <li>• Maßgenaue Verlegepläne</li>
+                                <li>• Materialberechnungen</li>
+                                <li>• Statische Berechnungen</li>
+                                <li>• Anschlussplanungen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="service-detail-card h-100">
+                        <div class="card-body">
+                            <h4 class="h5 mb-3">Kostenvoranschlag</h4>
+                            <p class="text-muted mb-3">Transparente und detaillierte Kostenvoranschläge für Ihr gesamtes Projekt.</p>
+                            <ul class="list-unstyled small">
+                                <li>• Detaillierte Materialkosten</li>
+                                <li>• Arbeitskostenberechnung</li>
+                                <li>• Zeitplan mit Meilensteinen</li>
+                                <li>• Alternative Preisoptionen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5 flex-lg-row-reverse">
+            <div class="col-lg-6">
+                <h3>Der Planungsprozess bei Hermitage Frankfurt</h3>
+                <div class="planungsprozess">
+                    <div class="step mb-3">
+                        <h5><span class="badge bg-primary me-2">1</span>Erstgespräch & Bedarfsanalyse</h5>
+                        <p class="text-muted small">Wir besprechen Ihre Wünsche, Budget und zeitliche Vorstellungen</p>
+                    </div>
+                    <div class="step mb-3">
+                        <h5><span class="badge bg-primary me-2">2</span>Raumvermessung</h5>
+                        <p class="text-muted small">Professionelle Vermessung Ihres Raumes mit Lasermessgeräten</p>
+                    </div>
+                    <div class="step mb-3">
+                        <h5><span class="badge bg-primary me-2">3</span>Konzeptentwicklung</h5>
+                        <p class="text-muted small">Erstellung verschiedener Designoptionen und Materialvorschläge</p>
+                    </div>
+                    <div class="step mb-3">
+                        <h5><span class="badge bg-primary me-2">4</span>3D-Visualisierung</h5>
+                        <p class="text-muted small">Fotorealistische Darstellung Ihres geplanten Raumes</p>
+                    </div>
+                    <div class="step mb-3">
+                        <h5><span class="badge bg-primary me-2">5</span>Technische Planung</h5>
+                        <p class="text-muted small">Detaillierte Verlegepläne und Materiallisten</p>
+                    </div>
+                    <div class="step">
+                        <h5><span class="badge bg-primary me-2">6</span>Kostenvoranschlag & Angebot</h5>
+                        <p class="text-muted small">Transparente Kostenaufstellung mit allen Details</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/planung-2.jpg') }}"
+                     alt="Fliesenplanung Frankfurt – Technische Zeichnungen und Verlegepläne"
+                     title="Technische Fliesenplanung"
+                     class="img-fluid rounded shadow"
+                     width="600" height="400"
+                     loading="lazy">
+            </div>
+        </div>
+
+        <!-- Lokale Expertise -->
+        <div class="local-expertise bg-light p-4 rounded">
+            <h3 class="text-center mb-4">Fliesenplanung Rhein-Main – Lokale Gegebenheiten berücksichtigt</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Frankfurt-spezifische Planung</h4>
+                    <p>Bei der Planung berücksichtigen wir die Besonderheiten Frankfurter Wohnungen:</p>
+                    <ul>
+                        <li>• Altbausanierungen in Gründerzeitgebäuden</li>
+                        <li>• Moderne Lofts in umgebauten Industriebauten</li>
+                        <li>• Penthouse-Wohnungen mit besonderen Anforderungen</li>
+                        <li>• Denkmalschutzgerechte Sanierungen</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Regionale Besonderheiten</h4>
+                    <p>Wir kennen die regionalen Gegebenheiten im Rhein-Main-Gebiet:</p>
+                    <ul>
+                        <li>• Lokale Bauvorschriften und Normen</li>
+                        <li>• Klimatische Bedingungen</li>
+                        <li>• Verfügbarkeit von Handwerkern</li>
+                        <li>• Lieferzeiten und Logistik</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2>Lassen Sie Ihr Projekt planen</h2>
+        <p class="lead mb-4">Professionelle Fliesen Planung Frankfurt mit 3D-Visualisierung</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="tel:+496990475570" class="btn btn-light btn-lg">
+                <i class="bi bi-telephone me-2"></i>069 90475570
+            </a>
+            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-calendar-check me-2"></i>Planungstermin vereinbaren
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

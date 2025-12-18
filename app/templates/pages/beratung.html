@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Fliesen Beratung Frankfurt – Kostenlose Beratung im Showroom{% endblock %}
+{% block description %}Kostenlose Fliesen Beratung Frankfurt ✓ Persönliche Beratung ✓ Materialauswahl ✓ Raumplanung ✓ 27 Jahre Erfahrung ✓ Termin vereinbaren: 069-90475570{% endblock %}
+{% block keywords %}Fliesen Beratung Frankfurt, kostenlose Beratung, Fliesenberatung Rhein-Main, Materialauswahl, Raumplanung{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="page-hero" style="background-image: url('{{ url_for('static', filename='images/hero/beratung-hero.jpg') }}');" aria-labelledby="page-title">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1 id="page-title" class="display-4 text-white">Fliesen Beratung Frankfurt – Ihr Experte für individuelle Lösungen</h1>
+        <p class="lead text-white">Kostenlose und unverbindliche Beratung durch unsere erfahrenen Fachberater</p>
+    </div>
+</section>
+
+<!-- Content -->
+<section class="py-5" aria-labelledby="beratung-heading">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h2 id="beratung-heading">Warum eine professionelle Fliesen Beratung Frankfurt so wichtig ist</h2>
+                <p class="lead">Bei der Auswahl und Verlegung von Fliesen gibt es viele Faktoren zu beachten. Unsere kostenlose Beratung hilft Ihnen, die richtigen Entscheidungen zu treffen und teure Fehler zu vermeiden.</p>
+                <p>Als erfahrener Fliesenexperte in Frankfurt beraten wir Sie zu allen Aspekten Ihres Projekts – von der Materialauswahl über die Raumplanung bis hin zur Budgetplanung.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/beratung-1.jpg') }}"
+                     alt="Fliesen Beratung Frankfurt – Persönliche Beratung im Showroom"
+                     title="Fliesenberatung Hermitage"
+                     class="img-fluid rounded shadow"
+                     width="600" height="400"
+                     loading="lazy">
+            </div>
+        </div>
+
+        <div class="row align-items-center mb-5 flex-lg-row-reverse">
+            <div class="col-lg-6">
+                <h3>Was Sie von unserer Fliesenberatung erwarten können</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        <strong>Kostenlose Erstberatung:</strong> Unverbindlich und ohne Zeitdruck
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        <strong>27 Jahre Erfahrung:</strong> Tiefgreifendes Fachwissen aus jahrelanger Praxis
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        <strong>Individuelle Lösungen:</strong> Maßgeschneiderte Konzepte für Ihr Zuhause
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        <strong>Umfassende Materialkenntnis:</strong> Von Feinsteinzeug bis Naturstein
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle text-success me-2"></i>
+                        <strong>Budgetorientierte Beratung:</strong> Realistische Kostenvoranschläge
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <img src="{{ url_for('static', filename='images/beratung-2.jpg') }}"
+                     alt="Materialauswahl Fliesen – Beratung zu verschiedenen Fliesenarten"
+                     title="Fliesen Materialberatung"
+                     class="img-fluid rounded shadow"
+                     width="600" height="400"
+                     loading="lazy">
+            </div>
+        </div>
+
+        <!-- Beratungsschritte -->
+        <div class="beratung-schritte mb-5">
+            <h3 class="text-center mb-4">So läuft unsere Fliesen Beratung Frankfurt ab</h3>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card text-center p-4 h-100">
+                        <div class="step-number mb-3">
+                            <span class="badge bg-primary fs-4">1</span>
+                        </div>
+                        <h4>Kontakt</h4>
+                        <p class="text-muted">Rufen Sie uns an oder vereinbaren Sie einen Termin online</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card text-center p-4 h-100">
+                        <div class="step-number mb-3">
+                            <span class="badge bg-primary fs-4">2</span>
+                        </div>
+                        <h4>Bedarfsanalyse</h4>
+                        <p class="text-muted">Wir besprechen Ihre Wünsche, Budget und Raumsituation</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card text-center p-4 h-100">
+                        <div class="step-number mb-3">
+                            <span class="badge bg-primary fs-4">3</span>
+                        </div>
+                        <h4>Materialauswahl</h4>
+                        <p class="text-muted">Gemeinsame Auswahl der passenden Fliesen und Materialien</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card text-center p-4 h-100">
+                        <div class="step-number mb-3">
+                            <span class="badge bg-primary fs-4">4</span>
+                        </div>
+                        <h4>Angebot</h4>
+                        <p class="text-muted">Detailliertes Angebot mit allen Kosten und Zeitplan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lokaler Bezug -->
+        <div class="local-focus bg-light p-4 rounded mb-5">
+            <h3 class="text-center mb-4">Fliesenberatung Rhein-Main – Lokale Expertise für Frankfurt</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Warum lokale Beratung wichtig ist</h4>
+                    <p>Als etablierter Fliesenfachbetrieb in Frankfurt kennen wir die lokalen Gegebenheiten genau. Wir beraten Sie zu:</p>
+                    <ul>
+                        <li>Baurechtlichen Vorschriften in Frankfurt</li>
+                        <li>Altbausanierungen in Nordend und Sachsenhausen</li>
+                        <li>Modernisierungen in Ostend und Fechenheim</li>
+                        <li>Klimatischen Bedingungen im Rhein-Main-Gebiet</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Unsere Servicegebiete</h4>
+                    <p>Wir beraten Kunden aus dem gesamten Rhein-Main-Gebiet:</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>• Frankfurt am Main</li>
+                                <li>• Offenbach am Main</li>
+                                <li>• Hanau</li>
+                                <li>• Maintal</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li>• Darmstadt</li>
+                                <li>• Aschaffenburg</li>
+                                <li>• Wiesbaden</li>
+                                <li>• Mainz</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2>Jetzt kostenlose Fliesen Beratung vereinbaren</h2>
+        <p class="lead mb-4">Lassen Sie sich von unseren Experten beraten – unverbindlich und kostenlos</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="tel:+496990475570" class="btn btn-light btn-lg">
+                <i class="bi bi-telephone me-2"></i>069 90475570
+            </a>
+            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-calendar-check me-2"></i>Termin vereinbaren
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

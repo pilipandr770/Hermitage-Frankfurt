@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}Hermitage Frankfurt – Premium Fliesen & Interior Design Showroom{% endblock %}
-{% block description %}Besuchen Sie unseren 500m² Fliesen-Showroom in Frankfurt ✓ Naturstein ✓ Feinsteinzeug ✓ Mosaik ✓ Badmöbel ✓ Persönliche Beratung ☎ 069-90475570{% endblock %}
+{% block title %}Hermitage Frankfurt – Premium Fliesen Showroom & Interior Design in Frankfurt am Main{% endblock %}
+{% block description %}Besuchen Sie unseren Premium Fliesen Showroom in Frankfurt ✓ Fliesen Frankfurt ✓ Fliesenausstellung ✓ Innenausstattung Frankfurt ✓ Naturstein ✓ Feinsteinzeug ✓ Mosaik ✓ Badmöbel ✓ Persönliche Beratung ☎ 069-90475570{% endblock %}
 {% block keywords %}Fliesen Frankfurt, Fliesenausstellung Frankfurt, Naturstein Frankfurt, Badezimmer Fliesen, Feinsteinzeug, Marmor Fliesen, Hermitage Showroom{% endblock %}
 
 {% block preload %}
@@ -115,6 +115,9 @@
     </div>
 </section>
 
+<!-- Breadcrumbs -->
+{% include 'components/breadcrumbs.html' %}
+
 <!-- Welcome Section -->
 <section id="welcome" class="py-5" aria-labelledby="welcome-heading">
     <div class="container">
@@ -139,6 +142,49 @@
                     und der einzigartigen Gestaltung jeder einzelnen Fliese überzeugen.
                 </p>
                 <a href="{{ url_for('main.about') }}" class="btn btn-outline-primary" title="Mehr über Hermitage Frankfurt erfahren">Mehr über uns</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO Content Section -->
+<section class="py-5 bg-light" aria-labelledby="seo-content-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="seo-content-heading" class="visually-hidden">Über Hermitage Frankfurt – Ihr Premium Fliesen Showroom</h2>
+
+                <div class="seo-content">
+                    <h3>Hermitage Frankfurt – Ihr Premium Fliesen Showroom in Frankfurt am Main</h3>
+                    <p>Seit 1998 ist Hermitage Frankfurt der führende Premium Fliesen Showroom in Frankfurt am Main. Als erfahrener Anbieter für hochwertige Fliesen und Innenausstattung bieten wir Ihnen eine unvergleichliche Auswahl an exklusiven Materialien und persönlicher Beratung. Unser 1000 m² großer Showroom an der Hanauer Landstraße 421 präsentiert die besten Kollektionen europäischer Hersteller – von italienischen Designfliesen bis zu portugiesischem Naturstein.</p>
+
+                    <h4>Premium Fliesen Frankfurt – Exklusive Kollektionen für anspruchsvolle Kunden</h4>
+                    <p>In unserer Fliesenausstellung Frankfurt finden Sie alles, was das Herz eines Designliebhabers höher schlagen lässt. Wir führen Premium Fliesen von renommierten Marken, die Sie in Baumärkten vergeblich suchen würden. Unsere Spezialität sind großformatige Fliesen bis 320x160 cm, ultraflache Porzellansteinzeugfliesen und exklusive Naturstein-Arten wie Carrara-Marmor, Calacatta-Marmor und portugiesischer Kalkstein. Jede Fliese wird sorgfältig ausgewählt und bietet höchste Qualität für Ihr Zuhause in Frankfurt.</p>
+
+                    <h4>Fliesenstudio Frankfurt – Persönliche Beratung und Planung</h4>
+                    <p>Als Fliesenstudio in Frankfurt am Main legen wir größten Wert auf individuelle Beratung. Unsere erfahrenen Fachberater nehmen sich Zeit für Ihre Wünsche und helfen Ihnen bei der Auswahl der passenden Fliesen für Bad, Küche oder Wohnbereich. Wir beraten Sie zu Materialien, Farben und Verlegemöglichkeiten – ganz gleich, ob Sie eine Badsanierung in einer Altbauwohnung in Frankfurt-Nordend planen oder ein modernes Loft in Frankfurt-Ostend gestalten möchten.</p>
+
+                    <h4>Typische Projekte: Von Badrenovierung bis Luxuswohnung</h4>
+                    <p>Unsere Kunden in Frankfurt und dem Rhein-Main-Gebiet vertrauen uns bei den unterschiedlichsten Projekten. Wir realisieren Bäder in luxuriösen Wohnungen am Mainufer, moderne Küchen in Lofts in Frankfurt-Sachsenhausen und repräsentative Büros in der Nähe der EZB. Auch gewerbliche Objekte wie Hotels, Restaurants und Praxen gehören zu unseren Referenzen. Jedes Projekt beginnt mit einer kostenlosen Beratung in unserem Showroom und endet mit perfekter Umsetzung durch unsere zertifizierten Partner.</p>
+
+                    <h4>Innenausstattung Frankfurt – Komplettlösungen aus einer Hand</h4>
+                    <p>Neben Fliesen bieten wir umfassende Innenausstattung Frankfurt für Ihr Zuhause. Von Badmöbeln und Armaturen über Türen und Treppen bis hin zu Beleuchtungssystemen – wir planen und koordinieren alles für Sie. Unser Interior Design Service umfasst 3D-Visualisierungen, detaillierte Planungen und die Überwachung der Montage. So erhalten Sie eine harmonische Gesamtlösung, die Ihren persönlichen Stil widerspiegelt.</p>
+
+                    <h4>Italienische Designfliesen Frankfurt – Mediterranes Flair für Ihr Zuhause</h4>
+                    <p>Als Spezialist für italienische Designfliesen Frankfurt bringen wir das mediterrane Lebensgefühl in Ihre Räume. Die handgefertigten Keramikfliesen und Mosaike aus Italien verbinden traditionelle Handwerkskunst mit modernem Design. Ob klassische Terrakotta-Optik oder avantgardistische Beton-Look Fliesen – unsere italienischen Kollektionen bieten für jeden Geschmack die passende Lösung. Entdecken Sie die Schönheit italienischer Fliesen in unserem Showroom an der Hanauer Landstraße.</p>
+
+                    <h4>Showroom Hanauer Landstraße – Einfach zu erreichen</h4>
+                    <p>Unser Fliesenshowroom an der Hanauer Landstraße 421 ist optimal gelegen und leicht zu erreichen. Mit dem Auto kommen Sie über die A661 und haben kostenlose Parkplätze direkt vor der Tür. Auch mit öffentlichen Verkehrsmitteln ist unser Standort in Frankfurt-Ostend gut angebunden. Die Straßenbahnlinien 11 und 14 halten in unmittelbarer Nähe. Besuchen Sie unsere Fliesenausstellung Frankfurt und lassen Sie sich von über 50.000 m² Fliesen inspirieren.</p>
+
+                    <h4>Warum Hermitage Frankfurt? Ihre Vorteile auf einen Blick</h4>
+                    <p>Als etablierter Fliesenexperte in Frankfurt bieten wir Ihnen entscheidende Vorteile: 27 Jahre Erfahrung, exklusive Marken, kostenlose Beratung, Musterservice, bundesweite Lieferung und zuverlässige Montagepartner. Wir kennen die lokalen Gegebenheiten in Frankfurt und dem Rhein-Main-Gebiet genau und beraten Sie kompetent zu baurechtlichen Vorschriften und praktischen Lösungen. Vertrauen Sie auf Hermitage – Ihren Premium Fliesen Showroom in Frankfurt am Main.</p>
+
+                    <h4>Fliesenausstellung Frankfurt – Mehr als nur Fliesen</h4>
+                    <p>Unsere Fliesenausstellung Frankfurt ist mehr als ein Ladengeschäft – sie ist ein Inspirationsort für alle, die Wert auf Qualität und Ästhetik legen. Neben Fliesen präsentieren wir komplette Badkonzepte, Küchenlösungen und Interior Design Ideen. Regelmäßige Sonderausstellungen zeigen aktuelle Trends und exklusive Kollektionen. Besuchen Sie uns und erleben Sie, wie Fliesen und Innenausstattung Ihr Zuhause verwandeln können.</p>
+
+                    <h4>Kontaktieren Sie uns – Ihr Termin für persönliche Beratung</h4>
+                    <p>Sie planen ein Bauprojekt in Frankfurt oder Umgebung? Vereinbaren Sie einen Termin für eine persönliche Beratung in unserem Showroom. Unter der Telefonnummer 069-90475570 erreichen Sie uns montags bis freitags von 10:00 bis 18:00 Uhr. Alternativ können Sie uns per E-Mail kontaktieren oder unser Kontaktformular nutzen. Wir freuen uns darauf, Sie in unserer Fliesenausstellung Frankfurt begrüßen zu dürfen!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -232,21 +278,75 @@
     </div>
 </section>
 
-<!-- CTA Section -->
+<!-- CTA Section with Form -->
 <section class="cta-section py-5 bg-primary text-white" aria-labelledby="cta-heading">
-    <div class="container text-center">
-        <h2 id="cta-heading" class="display-6 mb-4">Besuchen Sie unseren Showroom</h2>
-        <p class="lead mb-4">
-            Lassen Sie sich in unserer Fliesenausstellung inspirieren und entdecken Sie 
-            eine neue Welt des Ambientes.
-        </p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="tel:+496990475570" class="btn btn-light btn-lg" title="Hermitage Frankfurt anrufen">
-                <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>{{ company_phone }}
-            </a>
-            <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg" title="Anfahrt zum Hermitage Showroom Frankfurt">
-                <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>Anfahrt
-            </a>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                <h2 id="cta-heading" class="display-6 mb-4">Termin für persönliche Beratung vereinbaren</h2>
+                <p class="lead mb-4">
+                    Lassen Sie sich in unserer Fliesenausstellung Frankfurt inspirieren.
+                    Vereinbaren Sie jetzt Ihren persönlichen Beratungstermin!
+                </p>
+                <div class="d-flex justify-content-center justify-content-lg-start gap-3 flex-wrap">
+                    <a href="tel:+496990475570" class="btn btn-light btn-lg" title="Hermitage Frankfurt anrufen">
+                        <i class="bi bi-telephone-fill me-2" aria-hidden="true"></i>{{ company_phone }}
+                    </a>
+                    <a href="{{ url_for('main.contact') }}" class="btn btn-outline-light btn-lg" title="Anfahrt zum Hermitage Showroom Frankfurt">
+                        <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>Anfahrt
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="cta-form bg-white text-dark p-4 rounded shadow">
+                    <h3 class="h4 mb-3 text-center">Schnelltermin vereinbaren</h3>
+                    <form id="quick-appointment-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="quick-name" class="form-label">Name *</label>
+                                <input type="text" id="quick-name" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="quick-email" class="form-label">E-Mail *</label>
+                                <input type="email" id="quick-email" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="quick-phone" class="form-label">Telefon</label>
+                                <input type="tel" id="quick-phone" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="quick-project" class="form-label">Projektart</label>
+                                <select id="quick-project" class="form-select">
+                                    <option value="Bad">Badrenovierung</option>
+                                    <option value="Kueche">Küche</option>
+                                    <option value="Wohnen">Wohnbereich</option>
+                                    <option value="Gewerbe">Gewerbeobjekt</option>
+                                    <option value="Beratung">Allgemeine Beratung</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="quick-budget" class="form-label">Budgetrahmen</label>
+                                <select id="quick-budget" class="form-select">
+                                    <option value="unter-5000">Unter 5.000 €</option>
+                                    <option value="5000-15000">5.000 - 15.000 €</option>
+                                    <option value="15000-30000">15.000 - 30.000 €</option>
+                                    <option value="ueber-30000">Über 30.000 €</option>
+                                    <option value="unbekannt">Noch unklar</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="bi bi-calendar-check me-2"></i>Termin anfragen
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="small text-muted mt-2 text-center">
+                        Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>

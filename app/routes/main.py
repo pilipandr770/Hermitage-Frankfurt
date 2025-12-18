@@ -63,6 +63,24 @@ def service():
     return render_template('pages/service.html', page=page)
 
 
+@main_bp.route('/service/beratung/')
+def beratung():
+    """Страница Beratung."""
+    return render_template('pages/beratung.html')
+
+
+@main_bp.route('/service/planung/')
+def planung():
+    """Страница Planung."""
+    return render_template('pages/planung.html')
+
+
+@main_bp.route('/service/verlegung/')
+def verlegung():
+    """Страница Verlegung."""
+    return render_template('pages/verlegung.html')
+
+
 @main_bp.route('/trends/')
 def trends():
     """Страница Trends."""

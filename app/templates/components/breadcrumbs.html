@@ -1,0 +1,47 @@
+<!-- Breadcrumbs Navigation -->
+<nav aria-label="breadcrumb" class="py-3">
+    <div class="container">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="{{ url_for('main.home') }}" title="Hermitage Frankfurt Startseite">Home</a>
+            </li>
+            {% if request.endpoint == 'main.fliesen' %}
+                <li class="breadcrumb-item active" aria-current="page">Fliesen Frankfurt</li>
+            {% elif request.endpoint == 'main.fliesen_city' %}
+                <li class="breadcrumb-item">
+                    <a href="{{ url_for('main.fliesen') }}" title="Fliesen-Kollektion">Fliesen</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Fliesen {{ city|title }}</li>
+            {% elif request.endpoint == 'main.innenausstattung' %}
+                <li class="breadcrumb-item active" aria-current="page">Innenausstattung Frankfurt</li>
+            {% elif request.endpoint == 'main.interior_design' %}
+                <li class="breadcrumb-item active" aria-current="page">Interior Design</li>
+            {% elif request.endpoint == 'main.about' %}
+                <li class="breadcrumb-item active" aria-current="page">Über Uns</li>
+            {% elif request.endpoint == 'main.service' %}
+                <li class="breadcrumb-item active" aria-current="page">Service</li>
+            {% elif request.endpoint == 'main.beratung' %}
+                <li class="breadcrumb-item">
+                    <a href="{{ url_for('main.service') }}" title="Service Hermitage">Service</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Beratung</li>
+            {% elif request.endpoint == 'main.planung' %}
+                <li class="breadcrumb-item">
+                    <a href="{{ url_for('main.service') }}" title="Service Hermitage">Service</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Planung</li>
+            {% elif request.endpoint == 'main.verlegung' %}
+                <li class="breadcrumb-item">
+                    <a href="{{ url_for('main.service') }}" title="Service Hermitage">Service</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Verlegung</li>
+            {% elif request.endpoint == 'main.trends' %}
+                <li class="breadcrumb-item active" aria-current="page">Trends</li>
+            {% elif request.endpoint == 'main.contact' %}
+                <li class="breadcrumb-item active" aria-current="page">Kontakt</li>
+            {% elif request.endpoint == 'main.faq' %}
+                <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+            {% endif %}
+        </ol>
+    </div>
+</nav>
