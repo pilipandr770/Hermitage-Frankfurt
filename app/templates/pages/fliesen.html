@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}Fliesen Frankfurt – Feinsteinzeug, Naturstein & Mosaik | Hermitage{% endblock %}
-{% block description %}Exklusive Fliesen in Frankfurt ✓ Feinsteinzeug ✓ Naturstein ✓ Marmor ✓ Mosaik ✓ 500m² Showroom ✓ Persönliche Beratung. Seit 1998 Ihr Experte für Premium-Fliesen.{% endblock %}
 {% block keywords %}Fliesen Frankfurt, Fliesenausstellung Frankfurt, Feinsteinzeug, Naturstein Fliesen, Marmor Fliesen, Mosaik Fliesen, Bodenfliesen, Wandfliesen{% endblock %}
 
 {% block preload %}
@@ -42,7 +40,7 @@
                     
                     <h3>Unsere Fliesen-Kategorien</h3>
                     <ul>
-                        <li>Badezimmerfliesen</li>
+                        <li><a href="{{ url_for('main.fliesenarten_badezimmer') }}" title="Fliesenarten für Badezimmer – Die besten Materialien für Nassräume">Badezimmerfliesen</a></li>
                         <li>Küchenfliesen</li>
                         <li>Wohnzimmerfliesen</li>
                         <li>Bodenfliesen</li>
@@ -88,7 +86,7 @@
                 </div>
                 
                 <div class="sidebar-card bg-primary text-white p-4 rounded mt-4">
-                    <h4>Beratung gewünscht?</h4>
+                    <h4><a href="{{ url_for('main.beratung') }}" class="text-white text-decoration-none" title="Fliesenberatung Frankfurt – Persönliche Beratung im Showroom">Beratung</a> gewünscht?</h4>
                     <p>Rufen Sie uns an oder besuchen Sie unseren Showroom!</p>
                     <a href="tel:+496990475570" class="btn btn-light w-100" title="Hermitage Frankfurt anrufen">
                         <i class="bi bi-telephone me-2" aria-hidden="true"></i>{{ company_phone }}
@@ -391,7 +389,8 @@
     <div class="container">
         <h2>Besuchen Sie unseren Showroom</h2>
         <p class="lead">{{ company_address }}</p>
-        <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg">Jetzt Termin vereinbaren</a>
+        <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-lg me-2" title="Kontakt Hermitage Frankfurt – Termin vereinbaren">Jetzt Termin vereinbaren</a>
+        <a href="{{ url_for('main.beratung') }}" class="btn btn-outline-light btn-lg" title="Fliesenberatung Frankfurt – Persönliche Beratung">Beratung anfragen</a>
     </div>
 </section>
 

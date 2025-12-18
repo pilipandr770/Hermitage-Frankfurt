@@ -135,26 +135,54 @@ def seed_data():
         {
             'slug': 'home',
             'title': 'Willkommen bei Hermitage',
-            'meta_title': 'Hermitage Frankfurt - Premium Fliesen & Naturstein',
-            'meta_description': 'Ihr Spezialist für hochwertige Fliesen, Naturstein und exklusive Innenausstattung in Frankfurt. Besuchen Sie unseren 1000m² Showroom.'
+            'seo_title': 'Hermitage Frankfurt – Premium Fliesen & Interior Design',
+            'seo_description': 'Premium Fliesen Showroom Frankfurt ✓ Naturstein ✓ Feinsteinzeug ✓ Mosaik ✓ Innenausstattung ✓ 27 Jahre Erfahrung ✓ Kostenlose Beratung ☎ 069-90475570'
         },
         {
             'slug': 'fliesen',
             'title': 'Fliesen',
-            'meta_title': 'Premium Fliesen Frankfurt | Hermitage Home & Design',
-            'meta_description': 'Entdecken Sie unser exklusives Sortiment an Keramik- und Natursteinfliesen. Italienisches Design, höchste Qualität.'
+            'seo_title': 'Fliesen Frankfurt – Premium Kollektion | Hermitage',
+            'seo_description': 'Exklusive Fliesen Frankfurt ✓ Feinsteinzeug ✓ Naturstein ✓ Marmor ✓ Mosaik ✓ 500m² Showroom ✓ Persönliche Beratung ✓ Seit 1998 Ihr Fliesenexperte'
         },
         {
             'slug': 'innenausstattung',
             'title': 'Innenausstattung',
-            'meta_title': 'Exklusive Innenausstattung Frankfurt | Hermitage',
-            'meta_description': 'Luxuriöse Innenausstattung für Ihr Zuhause. Möbel, Dekoration und Interior Design von Hermitage Frankfurt.'
+            'seo_title': 'Innenausstattung Frankfurt – Badmöbel & Interior Design',
+            'seo_description': 'Komplette Innenausstattung Frankfurt ✓ Badmöbel ✓ Armaturen ✓ Beleuchtung ✓ Interior Design ✓ 500m² Showroom ✓ Individuelle Beratung seit 1998'
+        },
+        {
+            'slug': 'contact',
+            'title': 'Kontakt',
+            'seo_title': 'Kontakt Hermitage Frankfurt – Showroom & Beratung',
+            'seo_description': 'Kontaktieren Sie Hermitage Frankfurt ✓ Showroom Hanauer Landstraße 421 ✓ ☎ 069-90475570 ✓ Öffnungszeiten ✓ Anfahrt ✓ Kostenlose Beratung vereinbaren'
+        },
+        {
+            'slug': 'about',
+            'title': 'Über uns',
+            'seo_title': 'Über Hermitage Frankfurt – 27 Jahre Fliesenexpertise',
+            'seo_description': 'Hermitage Frankfurt seit 1998 ✓ Premium Fliesen & Innenausstattung ✓ 1000m² Showroom ✓ Gegründet von Leonid Parhomowski ✓ Ihr vertrauensvoller Partner'
+        },
+        {
+            'slug': 'service',
+            'title': 'Service',
+            'seo_title': 'Service Hermitage Frankfurt – Beratung & Verlegung',
+            'seo_description': 'Umfassender Service Hermitage Frankfurt ✓ Kostenlose Beratung ✓ 3D-Planung ✓ Professionelle Verlegung ✓ Musterservice ✓ Deutschlandweite Lieferung'
+        },
+        {
+            'slug': 'badsanierung-leitfaden',
+            'title': 'Badsanierung Leitfaden',
+            'seo_title': 'Badsanierung Frankfurt – Kompletter Leitfaden 2025',
+            'seo_description': 'Badsanierung Frankfurt 2025 ✓ Kompletter Leitfaden ✓ Kosten ✓ Planung ✓ Materialien ✓ Ablauf ✓ Experten-Tipps ✓ 27 Jahre Erfahrung ✓ Jetzt beraten lassen'
+        },
+        {
+            'slug': 'fliesenarten-badezimmer',
+            'title': 'Fliesenarten für Badezimmer',
+            'seo_title': 'Fliesenarten für Badezimmer – Kompletter Ratgeber 2025',
+            'seo_description': 'Fliesenarten für Badezimmer 2025 ✓ Keramik ✓ Porzellan ✓ Naturstein ✓ Mosaik ✓ Kosten ✓ Vor- & Nachteile ✓ Pflege ✓ Experten-Tipps ✓ Jetzt beraten lassen'
         }
     ]
-    
-    for page_data in pages:
-        page = Page(**page_data)
-        db.session.add(page)
+
+
     
     db.session.commit()
     print('Database seeded with initial data!')

@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Kontakt Hermitage Frankfurt – Beratungstermin & Anfahrt{% endblock %}
-{% block description %}Kontaktieren Sie Hermitage Frankfurt ✓ Tel: 069-90475570 ✓ Hanauer Landstraße 421 ✓ Kostenlose Beratung ✓ Showroom-Besichtigung ✓ Anfahrt & Öffnungszeiten{% endblock %}
 {% block keywords %}Kontakt Hermitage Frankfurt, Fliesen Beratung Frankfurt, Showroom Termin, Anfahrt Hermitage{% endblock %}
 
 {% block preload %}
-<link rel="preload" href="{{ url_for('static', filename='images/contact-hero.jpg') }}" as="image" fetchpriority="high">
+<link rel="preload" href="{{ url_for('static', filename='images/hero/contact-hero.jpg') }}" as="image" fetchpriority="high">
 {% endblock %}
 
 {% block content %}
 <!-- Hero -->
-<section class="page-hero page-hero-small" style="background-image: url('{{ url_for('static', filename='images/contact-hero.jpg') }}');" aria-labelledby="page-title">
+<section class="page-hero" style="background-image: url('{{ url_for('static', filename='images/hero/contact-hero.jpg') }}');" aria-labelledby="page-title">
     <div class="hero-overlay"></div>
     <div class="container">
         <h1 id="page-title" class="display-5 text-white">Kontakt Hermitage Frankfurt – Wir beraten Sie gerne</h1>

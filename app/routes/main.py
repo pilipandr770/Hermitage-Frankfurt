@@ -84,13 +84,15 @@ def verlegung():
 @main_bp.route('/badsanierung-leitfaden/')
 def badsanierung_leitfaden():
     """Badsanierung Leitfaden 2025."""
-    return render_template('pages/badsanierung-leitfaden.html')
+    page = Page.query.filter_by(slug='badsanierung-leitfaden').first()
+    return render_template('pages/badsanierung-leitfaden.html', page=page)
 
 
 @main_bp.route('/fliesenarten-badezimmer/')
 def fliesenarten_badezimmer():
     """Fliesenarten für Badezimmer Ratgeber."""
-    return render_template('pages/fliesenarten-badezimmer.html')
+    page = Page.query.filter_by(slug='fliesenarten-badezimmer').first()
+    return render_template('pages/fliesenarten-badezimmer.html', page=page)
 
 
 @main_bp.route('/trends/')
@@ -220,6 +222,11 @@ def sitemap():
         {'url': '/about/', 'priority': '0.7', 'changefreq': 'monthly'},
         {'url': '/kontakt/', 'priority': '0.8', 'changefreq': 'monthly'},
         {'url': '/service/', 'priority': '0.8', 'changefreq': 'monthly'},
+        {'url': '/service/beratung/', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'url': '/service/planung/', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'url': '/service/verlegung/', 'priority': '0.7', 'changefreq': 'monthly'},
+        {'url': '/badsanierung-leitfaden/', 'priority': '0.8', 'changefreq': 'monthly'},
+        {'url': '/fliesenarten-badezimmer/', 'priority': '0.8', 'changefreq': 'monthly'},
         {'url': '/trends/', 'priority': '0.8', 'changefreq': 'monthly'},
         {'url': '/blog/', 'priority': '0.8', 'changefreq': 'daily'},
         {'url': '/impressum/', 'priority': '0.3', 'changefreq': 'yearly'},
